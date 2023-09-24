@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\dialog.o
+./debug\sortdialog.o
+./debug\finddialog.o
+./debug\qrc_pictures.o
+./debug\moc_mainwindow.o
+./debug\moc_dialog.o
+./debug\moc_sortdialog.o
+./debug\moc_finddialog.o
+);
