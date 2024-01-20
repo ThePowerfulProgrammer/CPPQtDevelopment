@@ -1,0 +1,26 @@
+Workout Application
+Purpose: Store indiviual day workouts
+SA -> SD: RE-read the book lol
+
+Components Needed:
+Means to create,Read,update,delete an Exercise
+Means to store an exercise
+Means to allow user to interact with the program
+Means to store the data on HARD DRIVE
+Means to Disply main GUI with access to all other components
+
+
+
+Components currently created:
+Exercise Object representation
+Exercise Read object from txt file
+Exercise Write object from program to txt file
+Exercise array storing object
+Exercises are being stored on a txt file on SDD
+Exercise Dialog Class
+Integrating exerciseDialog + exerciseReader + exerciseWriter
+Can Use exerciseDialog to modify exercises that have been written to a file
+Can use exerciseDialog to write exercises to a file
+
+Currently working on:
+MainWindow

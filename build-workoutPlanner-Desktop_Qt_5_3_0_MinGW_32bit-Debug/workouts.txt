@@ -1,0 +1,16 @@
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Tricep dips	Closer Bar grip     	4	7	7	10	120	 30	1
+Inverted row	Pull bar down       	4	10	7	 0	120	 15	4
+Chin ups  	Externally rotate then pull	3	5	7	 0	120	 25	4
+Bench press	Heavy 5 x 5         	5	5	7	80	120	110	2

@@ -1,0 +1,25 @@
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Benchpress	Heavy set of 5x5    	5	5	7	90	180	116	1
+Squat     	Med set of 3x4      	3	4	8	110	180	160	2
+Deadlift  	Heavy set of 2x4    	2	4	7	150	180	200	3
+Db Bench press	set 1 failure then failure with same weight 2 more times	3	10	7	30	120	 40	5
+Shoulder press	Seated Shoulder press	3	10	8	25	120	 35	5
+Db Bench press	set 1 failure then failure with same weight 2 more times	3	10	7	30	120	 40	5
+Shoulder press	Seated Shoulder press	3	10	8	25	120	 35	5
