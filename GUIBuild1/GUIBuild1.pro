@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
+
 QT       += core
+QT       += widgets
 
 QT       -= gui
 
@@ -15,4 +17,10 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    exercise.cpp \
+    workout.cpp
+
+HEADERS += \
+    exercise.h \
+    workout.h
