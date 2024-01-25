@@ -19,8 +19,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     exercise.cpp \
-    workout.cpp
+    workout.cpp \
+    workoutwriter.cpp \
+    workoutreader.cpp
 
 HEADERS += \
     exercise.h \
-    workout.h
+    workout.h \
+    workoutwriter.h \
+    workoutreader.h

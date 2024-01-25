@@ -2,6 +2,8 @@
 #include <QApplication>
 #include "exercise.h"
 #include "workout.h"
+#include "workoutwriter.h"
+#include "workoutreader.h"
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -31,6 +33,12 @@ int main(int argc, char *argv[])
     {
         qDebug() << w1.getExercises()[i].toString() << "\n";
     }
+
+//    workoutWriter writer("test.txt");
+//    writer.writeWorkout(w1);
+
+    workoutReader reader("test.txt");
+    reader.readWorkout();
 
     return a.exec();
 }
