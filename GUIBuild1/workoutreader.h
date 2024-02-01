@@ -10,7 +10,7 @@ public:
     workoutReader(QString fname);
     ~workoutReader();
 
-    Workout readWorkout();
+    Workout readWorkout(QString name);
 
     bool endOfFile();
 

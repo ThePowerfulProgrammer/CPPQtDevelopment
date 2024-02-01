@@ -8,17 +8,32 @@ workoutReader::workoutReader(QString fname): inputFile(fname)
     inputFile.open(QIODevice::ReadOnly | QIODevice::Text);
 }
 
-Workout workoutReader::readWorkout()
+Workout workoutReader::readWorkout(QString name)
 {
     QTextStream in(&inputFile); // read in file
-    QString firstLine = in.readLine();
+    Workout tempWorkout(name);
 
-    int date = firstLine.indexOf("2024");
-    int pos = firstLine.indexOf("x");
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+        int date = line.indexOf("2024");
+        int pos = line.indexOf("x");
 
-    QString test = firstLine.mid(date+5,pos-date);
-    qDebug() << test << "\n";
-    return Workout();
+        QString name = line.mid(date+5,pos-date-7);
+
+        int sets = line.mid(pos-1,1).toInt();
+        int reps = line.mid(pos+1,1).toInt();
+
+        int at = line.indexOf("@");
+        float workingWeight = line.mid(at+1).toFloat();
+        Exercise ex(name,sets,reps,workingWeight);
+
+
+        tempWorkout.addExercise(ex);
+    }
+
+
+    return tempWorkout;
 }
 
 //Workout Workout::txtToWorkout(QString fname,string n)
