@@ -30,8 +30,12 @@ mainWindow::mainWindow(QWidget *parent)
     toolbar->addAction(save);
     toolbar->addAction(exit);
 
+    connect(open,&QAction::triggered,this, &mainWindow::openDialog);
+    connect(save,&QAction::triggered,this,&mainWindow::saveFile);
+    connect(exit, &QAction::triggered,this, &mainWindow::exitApplication);
+
     // change css
-    toolbar->setStyleSheet("QToolButton {color:#000000;} QTooolButton:hover {color:#aaa} QToolButton {border: 1px solid #000}");
+    toolbar->setStyleSheet("QToolButton {color:#000000;} QTooolButton:hover {color:blue} QToolButton {border: 1px solid #000}");
 
 
     QAction *add = new QAction(tr("&A"),this);
@@ -42,8 +46,8 @@ mainWindow::mainWindow(QWidget *parent)
     toolbar->addAction(change);
     toolbar->addAction(remove);
 
-    connect(change,&QAction::triggered,this, &mainWindow::onAddItem);
-    connect(remove,&QAction::triggered,this,&mainWindow::onChangeItem);
+    connect(add,&QAction::triggered,this, &mainWindow::onAddItem);
+    connect(change,&QAction::triggered,this,&mainWindow::onChangeItem);
     connect(remove, &QAction::triggered,this, &mainWindow::removeFunction);
 
 
