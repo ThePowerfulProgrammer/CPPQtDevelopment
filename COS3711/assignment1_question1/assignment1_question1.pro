@@ -25,3 +25,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     softwarereviewdialog.h
+
+OTHER_FILES += \
+    stylesheet.qss

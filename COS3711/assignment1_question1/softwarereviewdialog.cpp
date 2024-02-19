@@ -40,6 +40,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     //
     connect(dateEdit,SIGNAL(dateChanged(QDate)), this, SLOT(ondateChanged()));
 
+
     // Create the layout
     QHBoxLayout *firstRow = new QHBoxLayout;
     firstRow->addWidget(nameLabel);
@@ -66,6 +67,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     setLayout(mainLayout);
     setWindowTitle("Software Review");
     setFixedHeight(sizeHint().height());
+    resize(300,height());
 }
 
 void SoftwareReviewDialog::addSoftware()
@@ -87,9 +89,10 @@ void SoftwareReviewDialog::addSoftware()
 
 void SoftwareReviewDialog::displayList()
 {
-    for (int i=0;i<list->size();i++)
+    QList<QString>::iterator i;
+    for (i=list->begin(); i != list->end(); ++i)
     {
-        qDebug() << list[i] << "\n";
+        qDebug() << *i << "\n";
     }
 }
 
