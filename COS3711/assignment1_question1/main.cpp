@@ -1,8 +1,12 @@
-#include <QCoreApplication>
+#include <QApplication>
+
+#include "softwarereviewdialog.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication app(argc, argv);
+    SoftwareReviewDialog *dialog = new SoftwareReviewDialog;
+    dialog->show();
 
-    return a.exec();
+    return app.exec();
 }

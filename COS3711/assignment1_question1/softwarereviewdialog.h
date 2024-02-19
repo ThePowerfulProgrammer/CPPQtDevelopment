@@ -2,7 +2,7 @@
 #define SOFTWAREREVIEWDIALOG_H
 
 #include <QDialog> // required
-#include <QString>
+#include <QList>
 
 // forward declarations
 class QCheckBox;
@@ -19,15 +19,19 @@ class SoftwareReviewDialog : public QDialog
 
 public:
     SoftwareReviewDialog(QWidget *parent = 0);
+    ~SoftwareReviewDialog();
+
+// action functions
+//signals:
+//    void emitMessage(QString txt);
 
 
-// action functions Connect a slot to emit a signal
+// reaction functions Connect a slot to emit a signal
 private slots:
-    void sendMessage();
+    void addSoftware();
+    void displayList();
+    void ondateChanged();
 
-// reaction functions
-signals:
-    void emitMessage(QString txt);
 
 
 
@@ -39,9 +43,7 @@ private:
     QPushButton *add;
     QPushButton *display;
     QCheckBox *recommended;
-
-
-
+    QList<QString> *list;
 };
 
 #endif // SOFTWAREREVIEWDIALOG_H
