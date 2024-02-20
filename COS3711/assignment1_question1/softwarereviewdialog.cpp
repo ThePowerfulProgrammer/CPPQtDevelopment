@@ -12,9 +12,9 @@
 #include <QMessageBox>
 
 SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
-    : QDialog(parent), list(new QList<QString>)
+    : QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint), hash(new QMultiHash<QString,QString>)
 {
-    // set up widgets
+    // 1) set up widgets
     lineEdit = new QLineEdit;
     lineEdit->setPlaceholderText("Enter Software");
     nameLabel = new QLabel("Name");
@@ -37,8 +37,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     // signals and slots
     connect(add, SIGNAL(clicked()), this, SLOT(addSoftware()));
     connect(display,SIGNAL(clicked()), this, SLOT(displayList()));
-    //
-    connect(dateEdit,SIGNAL(dateChanged(QDate)), this, SLOT(ondateChanged()));
+    // connect(dateEdit,SIGNAL(dateChanged(QDate)), this, SLOT(ondateChanged()));
 
 
     // Create the layout
@@ -58,6 +57,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     fourthRow->addWidget(add);
     fourthRow->addWidget(display);
 
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstRow);
     mainLayout->addLayout(secondRow);
@@ -75,7 +75,7 @@ void SoftwareReviewDialog::addSoftware()
     QString text = lineEdit->text();
     if (recommended->isChecked())
     {
-        list->append(text);
+        hash->insert(text,dateEdit->text());
         lineEdit->clear();
         lineEdit->setPlaceholderText("Enter Software");
         dateEdit->setDate(QDate::currentDate());
@@ -89,10 +89,12 @@ void SoftwareReviewDialog::addSoftware()
 
 void SoftwareReviewDialog::displayList()
 {
-    QList<QString>::iterator i;
-    for (i=list->begin(); i != list->end(); ++i)
+    const int columnWidth = 10; // adjust this to your needs
+    qDebug() << QString("%1 %2 %3").arg("Software", columnWidth).arg(" ").arg("Date of Review");
+    QHash<QString,QString>::iterator i;
+    for (i=hash->begin();i != hash->end(); ++i)
     {
-        qDebug() << *i << "\n";
+        qDebug() << QString("%1 %2 %3").arg(i.key(), columnWidth).arg(" ").arg(i.value());
     }
 }
 
@@ -103,7 +105,7 @@ void SoftwareReviewDialog::ondateChanged()
 
 SoftwareReviewDialog::~SoftwareReviewDialog()
 {
-    delete list;
+    delete hash;
 }
 
 

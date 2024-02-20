@@ -2,7 +2,7 @@
 #define SOFTWAREREVIEWDIALOG_H
 
 #include <QDialog> // required
-#include <QList>
+#include <QMultiHash>
 
 // forward declarations
 class QCheckBox;
@@ -43,7 +43,7 @@ private:
     QPushButton *add;
     QPushButton *display;
     QCheckBox *recommended;
-    QList<QString> *list;
+    QMultiHash<QString, QString> *hash;
 };
 
 #endif // SOFTWAREREVIEWDIALOG_H
