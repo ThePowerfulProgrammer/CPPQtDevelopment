@@ -1,1 +1,42 @@
-QLabel {color: red;}
+QLabel {font-family: Arial Black, Arial;}
+QPushButton {
+    font-family: Segoe UI, Arial;
+}
+
+QPushButton#add {
+    background-color: red;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+QPushButton#add:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}
+
+QPushButton#display {
+    background-color: red;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+
+
+QPushButton#display:hover {
+    background-color: rgb(255,25,255);
+}
+
+QPushButton#display:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}
+
+QLineEdit {font-family: Georgia, Arial;}

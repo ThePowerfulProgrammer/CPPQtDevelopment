@@ -17,6 +17,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     // 1) set up widgets
     lineEdit = new QLineEdit;
     lineEdit->setPlaceholderText("Enter Software");
+    lineEdit->setProperty("mandatoryField", true);
     nameLabel = new QLabel("Name");
     nameLabel->setBuddy(lineEdit);
 
@@ -31,7 +32,9 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     recommended = new QCheckBox("Recommend");
 
     add = new QPushButton("Add");
+    add->setObjectName("add");
     display = new QPushButton("Display");
+    display->setObjectName("display");
 
 
     // signals and slots
@@ -72,8 +75,9 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
 
 void SoftwareReviewDialog::addSoftware()
 {
+
     QString text = lineEdit->text();
-    if (recommended->isChecked())
+    if (recommended->isChecked() && text.isEmpty() == false)
     {
         hash->insert(text,dateEdit->text());
         lineEdit->clear();
@@ -81,14 +85,23 @@ void SoftwareReviewDialog::addSoftware()
         dateEdit->setDate(QDate::currentDate());
         recommended->setChecked(false);
     }
+    else if (text.isEmpty())
+    {
+        QMessageBox::information(this,"No Software Text","1) Enter the name of a software in the appropriately lablled box \n2) Check the box");
+    }
     else
     {
-        QMessageBox::information(this,"Error","Check the box to ensure software is recommended");
+        QMessageBox::warning(this, "The BOX!", "Ensure the box is checked");
     }
 }
 
 void SoftwareReviewDialog::displayList()
 {
+    if (hash->isEmpty())
+    {
+        QMessageBox::warning(this,"No Software added", "Add a software using the interface");
+        return;
+    }
     const int columnWidth = 10; // adjust this to your needs
     qDebug() << QString("%1 %2 %3").arg("Software", columnWidth).arg(" ").arg("Date of Review");
     QHash<QString,QString>::iterator i;
