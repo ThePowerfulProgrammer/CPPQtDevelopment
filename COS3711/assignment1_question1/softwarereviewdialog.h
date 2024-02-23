@@ -30,10 +30,6 @@ public:
 private slots:
     void addSoftware();
     void displayList();
-    void ondateChanged();
-
-
-
 
 private:
     QLabel *nameLabel;

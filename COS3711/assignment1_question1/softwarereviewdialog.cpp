@@ -111,10 +111,7 @@ void SoftwareReviewDialog::displayList()
     }
 }
 
-void SoftwareReviewDialog::ondateChanged()
-{
-    dateEdit->setDate(QDate::currentDate());
-}
+
 
 SoftwareReviewDialog::~SoftwareReviewDialog()
 {

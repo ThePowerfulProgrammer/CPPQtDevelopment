@@ -1,29 +1,39 @@
-QLabel {font-family: Arial Black, Arial;}
+
+QLabel {
+    font-family: Arial Black, Arial;
+}
+
 QPushButton {
     font-family: Segoe UI, Arial;
 }
 
 QPushButton#add {
-    background-color: red;
+    background-color: #fffcff;
     border-style: outset;
     border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
+    border-radius: 5px;
+    border-color: #000D1A;
     font: bold 14px;
     min-width: 10em;
     padding: 6px;
 }
+
+QPushButton#add:hover {
+    background-color: #dcd0ff;
+}
+
+
 QPushButton#add:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: #b296ff;
     border-style: inset;
 }
 
 QPushButton#display {
-    background-color: red;
+    background-color: #fffcff;
     border-style: outset;
     border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
+    border-radius: 5px;
+    border-color: #000D1A;
     font: bold 14px;
     min-width: 10em;
     padding: 6px;
@@ -31,11 +41,11 @@ QPushButton#display {
 
 
 QPushButton#display:hover {
-    background-color: rgb(255,25,255);
+    background-color: #dcd0ff;
 }
 
 QPushButton#display:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: #b296ff;
     border-style: inset;
 }
 
