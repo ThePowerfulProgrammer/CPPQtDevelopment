@@ -71,6 +71,8 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent)
     setWindowTitle("Software Review");
     setFixedHeight(sizeHint().height());
     resize(300,height());
+
+
 }
 
 void SoftwareReviewDialog::addSoftware()

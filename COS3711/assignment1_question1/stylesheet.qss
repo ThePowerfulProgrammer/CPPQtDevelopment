@@ -1,3 +1,17 @@
+QLineEdit {
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+QDateEdit {
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
 
 QLabel {
     font-family: Arial Black, Arial;
@@ -49,4 +63,10 @@ QPushButton#display:pressed {
     border-style: inset;
 }
 
-QLineEdit {font-family: Georgia, Arial;}
+QLineEdit {
+    font-family: Georgia, Arial;
+}
+
+QCheckBox {
+    font-family: Georgia, Arial;
+}
