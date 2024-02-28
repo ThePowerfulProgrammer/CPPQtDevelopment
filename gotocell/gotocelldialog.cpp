@@ -29,7 +29,17 @@ GoToCellDialog::GoToCellDialog(QWidget *parent) :
 }
 
 //The on_lineEdit_textChanged() slot enables or disables the OK button,according
-//to whether the line edit contains a valid cell location. QLineEdit::hasAcceptableInput() uses the validator we set in the constructor
+//to whether the line edit contains a valid cell location. QLineEdit::hasAcceptableInput() uses the validator we set in the constructor
+
+/** Thanks bing */
+//The on_lineEdit_textChanged() function is a slot that gets called whenever the text in the lineEdit widget changes. This is a feature of Qt’s signal-slot mechanism, and the naming convention on_<objectName>_<signalName> is used for automatically connecting signals to slots.
+
+//Here’s how it works in your code:
+
+//When the text in lineEdit changes (for example, when the user types something), the textChanged() signal is emitted.
+//Because of the naming convention, this signal is automatically connected to the on_lineEdit_textChanged() slot, so that function is called.
+//Inside the on_lineEdit_textChanged() function, ui->okButton->setEnabled(ui->lineEdit->hasAcceptableInput()); is called. This line enables the okButton if the text in lineEdit is acceptable according to its validator, and disables it otherwise.
+//The validator was set in the constructor with ui->lineEdit->setValidator(new QRegExpValidator(regExp,this));, where regExp is a regular expression that matches a letter followed by 1 to 3 digits. So, the okButton will be enabled only when the text in lineEdit matches this pattern.
 
 void GoToCellDialog::on_lineEdit_textChanged()
 {
