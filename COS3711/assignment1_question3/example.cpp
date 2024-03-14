@@ -1,4 +1,1 @@
-#include <QtGui>
-#include <QtCore>
-
 

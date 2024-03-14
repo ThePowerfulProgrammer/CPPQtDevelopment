@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2024-02-27T16:04:32
+# Project created by QtCreator 2024-03-14T18:38:05
 #
 #-------------------------------------------------
 
@@ -10,11 +10,15 @@ QT       -= gui
 
 QT       += widgets
 
-TARGET = assignment1_question3
+TARGET = SimpleTableMVC
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    mydialog.cpp
+
+HEADERS += \
+    mydialog.h
