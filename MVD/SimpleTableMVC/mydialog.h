@@ -12,6 +12,9 @@ public:
     myDialog(QWidget *parent = 0);
     ~myDialog();
 
+
+public slots:
+    void output();
 private:
     QStandardItemModel *model;
     QTableView *tableView;
