@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_myDialog_t {
-    QByteArrayData data[3];
-    char stringdata[18];
+    QByteArrayData data[4];
+    char stringdata[24];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,9 +31,10 @@ static const qt_meta_stringdata_myDialog_t qt_meta_stringdata_myDialog = {
     {
 QT_MOC_LITERAL(0, 0, 8),
 QT_MOC_LITERAL(1, 9, 7),
-QT_MOC_LITERAL(2, 17, 0)
+QT_MOC_LITERAL(2, 17, 0),
+QT_MOC_LITERAL(3, 18, 5)
     },
-    "myDialog\0addData\0"
+    "myDialog\0addData\0\0index"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,10 +52,10 @@ static const uint qt_meta_data_myDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       1,    1,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QModelIndex,    3,
 
        0        // eod
 };
@@ -64,11 +65,10 @@ void myDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     if (_c == QMetaObject::InvokeMetaMethod) {
         myDialog *_t = static_cast<myDialog *>(_o);
         switch (_id) {
-        case 0: _t->addData(); break;
+        case 0: _t->addData((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject myDialog::staticMetaObject = {
