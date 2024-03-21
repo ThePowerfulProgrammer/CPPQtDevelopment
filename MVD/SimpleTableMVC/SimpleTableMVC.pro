@@ -18,7 +18,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    mydialog.cpp
+    mydialog.cpp \
+    delegate.cpp
 
 HEADERS += \
-    mydialog.h
+    mydialog.h \
+    delegate.h

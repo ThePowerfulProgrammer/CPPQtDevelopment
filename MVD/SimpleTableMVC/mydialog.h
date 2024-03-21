@@ -10,6 +10,8 @@
 #include <QLineEdit>
 #include <QDoubleSpinBox>
 #include <QSpinBox>
+#include <QModelIndex>
+#include "delegate.h"
 
 class myDialog : public QDialog
 {
@@ -21,6 +23,8 @@ public:
 
 public slots:
     void addData();
+    void deleteData();
+    void output(QModelIndex index);
 private:
     // 1st row: 4 labels
     QLabel *composerLabel;

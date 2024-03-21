@@ -49,6 +49,7 @@ myDialog::myDialog(QWidget *parent): QDialog(parent)
 
     // 3rd row: Create my model add the data and set the tableview
     model = new QStandardItemModel(this);
+
     QStringList labels;
     labels << "Composer" << "Album title" << "Replacement cost(R)" << "Rating";
     model->setHorizontalHeaderLabels(labels);
@@ -57,17 +58,28 @@ myDialog::myDialog(QWidget *parent): QDialog(parent)
     tableView = new QTableView(this);
     tableView->setModel(model);
     tableView->setColumnWidth(2,tableView->columnWidth(2)+50);
+    tableView->setSortingEnabled(true);
+
     QHBoxLayout *thirdRow = new QHBoxLayout;
     thirdRow->addWidget(tableView);
 
     connect(add,SIGNAL(clicked()),this,SLOT(addData()));
+    connect(tableView,SIGNAL(clicked(QModelIndex)), this,SLOT(output(QModelIndex)));
 
+
+    // 4th row: Create the delete button to remove a row
+    deleteButton = new QPushButton("Delete",this);
+    QHBoxLayout *fourthRow = new QHBoxLayout;
+    fourthRow->addStretch(50);
+    fourthRow->addWidget(deleteButton,Qt::AlignRight);
+
+    connect(deleteButton,SIGNAL(clicked()), this, SLOT(deleteData()));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstRow);
     mainLayout->addLayout(secondRow);
     mainLayout->addLayout(thirdRow);
-
+    mainLayout->addLayout(fourthRow);
 
     setLayout(mainLayout);
 }
@@ -98,9 +110,25 @@ void myDialog::addData()
     // Insert a new row into the model
     int row = model->rowCount();
     model->insertRow(row, QList<QStandardItem*>() << composer_item << album_item << replacement_item << rating_item);
+
+}
+
+void myDialog::deleteData()
+{
+    model->removeRow(model->rowCount()-1);
+}
+
+
+void myDialog::output(QModelIndex index)
+{
+
+   int row = index.row();
+   int col = index.column();
+
+   QStandardItem *item = model->item(row,col);
+   qDebug() << item->text();
 }
 
 myDialog::~myDialog()
 {
-
 }
