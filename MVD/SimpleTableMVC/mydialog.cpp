@@ -60,6 +60,11 @@ myDialog::myDialog(QWidget *parent): QDialog(parent)
     tableView->setColumnWidth(2,tableView->columnWidth(2)+50);
     tableView->setSortingEnabled(true);
 
+    Delegate *progressDelegate = new Delegate(this);
+    tableView->setItemDelegateForColumn(3,progressDelegate);
+
+
+
     QHBoxLayout *thirdRow = new QHBoxLayout;
     thirdRow->addWidget(tableView);
 

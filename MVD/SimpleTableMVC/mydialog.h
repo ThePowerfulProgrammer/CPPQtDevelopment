@@ -43,6 +43,9 @@ private:
     QStandardItemModel *model;
     QTableView *tableView;
 
+    //DEleGATE
+    Delegate *progressDelegate;
+
     // 4th row
     QPushButton *deleteButton;
 
