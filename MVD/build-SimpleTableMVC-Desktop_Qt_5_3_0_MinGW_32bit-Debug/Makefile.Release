@@ -254,6 +254,7 @@ release/moc_mydialog.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QDialo
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qstyleditemdelegate.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QProgressBar \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
 		../SimpleTableMVC/mydialog.h
 	C:\Qt\Qt5.3.0\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/win32-g++ -IC:/Users/ashis/OneDrive/Desktop/Qt/MVD/SimpleTableMVC -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore -I. ..\SimpleTableMVC\mydialog.h -o release\moc_mydialog.cpp
 
@@ -375,6 +376,7 @@ release/moc_delegate.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QStyle
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QProgressBar \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QModelIndex \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
 		../SimpleTableMVC/delegate.h
 	C:\Qt\Qt5.3.0\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/win32-g++ -IC:/Users/ashis/OneDrive/Desktop/Qt/MVD/SimpleTableMVC -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore -I. ..\SimpleTableMVC\delegate.h -o release\moc_delegate.cpp
 
@@ -544,7 +546,9 @@ release/main.o: ../SimpleTableMVC/main.cpp C:/Qt/Qt5.3.0/5.3/mingw482_32/include
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QStyledItemDelegate \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qstyleditemdelegate.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QProgressBar \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\SimpleTableMVC\main.cpp
 
 release/mydialog.o: ../SimpleTableMVC/mydialog.cpp ../SimpleTableMVC/mydialog.h \
@@ -691,6 +695,7 @@ release/mydialog.o: ../SimpleTableMVC/mydialog.cpp ../SimpleTableMVC/mydialog.h 
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qstyleditemdelegate.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QProgressBar \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QStandardItem \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QVBoxLayout \
@@ -821,7 +826,16 @@ release/delegate.o: ../SimpleTableMVC/delegate.cpp ../SimpleTableMVC/delegate.h 
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QProgressBar \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qprogressbar.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QModelIndex
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QModelIndex \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QSlider \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\delegate.o ..\SimpleTableMVC\delegate.cpp
 
 release/moc_mydialog.o: release/moc_mydialog.cpp 

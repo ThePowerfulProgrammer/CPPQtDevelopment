@@ -31,7 +31,7 @@ public slots:
 private:
     QToolBar *toolbar;
     QMenu *fileMenu;
-    bool dataChanged;\
+    bool dataChanged;
 
 
 };

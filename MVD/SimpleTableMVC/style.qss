@@ -1,0 +1,4 @@
+QProgressBar:chunk
+{
+    background-color: 'blue';
+}

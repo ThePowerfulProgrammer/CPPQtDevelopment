@@ -1,5 +1,6 @@
 #include "delegate.h"
 #include <QSlider>
+#include <QApplication>
 
 Delegate::Delegate(QObject *parent) :
     QStyledItemDelegate(parent)
@@ -21,26 +22,7 @@ QWidget* Delegate::createEditor(QWidget *parent, const QStyleOptionViewItem &opt
 
 }
 
-void Delegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    // last column is rating
-    if (index.column() == 3)
-    {
-        QStyleOptionProgressBar progressBar;
-        progressBar.rect = option.rect;
-        progressBar.minimum = 0;
-        progressBar.maximum = 300;
-        progressBar.progress = index.data(Qt::EditRole).toInt();
 
-        QProgressBar bar;
-        bar.setRange(progressBar.minimum, progressBar.maximum);
-        bar.setValue(progressBar.progress);
-        bar.setTextVisible(false);
-
-        QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBar, painter, &bar);
-
-    }
-}
 
 // when I double click the (row,col), I need to edit the data --> This is how
 void Delegate::setEditorData(QWidget *editor, const QModelIndex &index) const
@@ -53,6 +35,9 @@ void Delegate::setEditorData(QWidget *editor, const QModelIndex &index) const
     QProgressBar *slider = static_cast<QProgressBar*>(editor);
     slider->setOrientation(Qt::Horizontal);
     slider->setValue(value);
+    slider->setStyleSheet("QProgressBar::chunk {"
+                          "     background-color: red;"
+                          "}");
 
 }
 
@@ -71,4 +56,26 @@ void Delegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QM
 void Delegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     editor->setGeometry(option.rect);
+}
+
+
+void Delegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    // last column is rating :^)
+    if (index.column() == 3)
+    {
+        QStyleOptionProgressBar progressBar;
+        progressBar.rect = option.rect;
+        progressBar.minimum = 0;
+        progressBar.maximum = 10;
+        progressBar.progress = index.data(Qt::EditRole).toInt();
+
+
+        QProgressBar bar;
+        bar.setRange(progressBar.minimum, progressBar.maximum);
+        bar.setValue(progressBar.progress);
+        bar.setTextVisible(false);
+
+        QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBar, painter, &bar);
+    }
 }

@@ -24,3 +24,6 @@ SOURCES += main.cpp \
 HEADERS += \
     mydialog.h \
     delegate.h
+
+OTHER_FILES += \
+    style.qss
