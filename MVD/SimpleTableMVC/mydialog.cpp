@@ -60,6 +60,9 @@ myDialog::myDialog(QWidget *parent): QDialog(parent)
     tableView->setColumnWidth(2,tableView->columnWidth(2)+50);
     tableView->setSortingEnabled(true);
 
+
+
+
     Delegate *progressDelegate = new Delegate(this);
     tableView->setItemDelegateForColumn(3,progressDelegate);
 
@@ -98,6 +101,12 @@ void myDialog::addData()
     QString album_text = addAlbum->text();
     double replacement_value = addReplacement->value();
     int rating_value = addRating->value();
+
+
+    if (replacement_value > 199)
+    {
+        tableView->row
+    }
 
     addComposer->clear();
     addComposer->setPlaceholderText("Composer");
