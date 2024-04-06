@@ -103,10 +103,6 @@ void myDialog::addData()
     int rating_value = addRating->value();
 
 
-    if (replacement_value > 199)
-    {
-        tableView->row
-    }
 
     addComposer->clear();
     addComposer->setPlaceholderText("Composer");

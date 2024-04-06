@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
     verticalLayout->addSpacing(10);
     verticalLayout->addWidget(add);
 
-    dialog->connect(add,SIGNAL(clicked()),
 
     dialog->setLayout(verticalLayout);
 

@@ -21,12 +21,6 @@ public:
     SoftwareReviewDialog(QWidget *parent = 0);
     ~SoftwareReviewDialog();
 
-// action functions
-//signals:
-//    void emitMessage(QString txt);
-
-
-// reaction functions Connect a slot to emit a signal
 private slots:
     void addSoftware();
     void displayList();

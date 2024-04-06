@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QFileDialog>
+#include <QTextCursor>
 
 int main(int argc, char *argv[])
 {
@@ -30,11 +31,7 @@ int main(int argc, char *argv[])
 
 
     QRegularExpression re2;
-//    • 000-000-0000
-//    • 000-0000000
-//    • 0000000000
-//    • (000)000-0000
-//    • (000)0000000
+
     re2.setPattern("(\\d{3}-\\d{3}-\\d{4}|\\d{3}-\\d{7}|\\d{10}|\\(\\d{3}\\)\\d{3}-\\d{4}|\\(\\d{3}\\)\\d{7})|\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b");
 
 
