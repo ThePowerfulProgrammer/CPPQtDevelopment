@@ -18,7 +18,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    musicdialog.cpp
+    musicdialog.cpp \
+    colordelegate.cpp \
+    progressbardelegate.cpp \
+    doubledelegate.cpp
 
 HEADERS += \
-    musicdialog.h
+    musicdialog.h \
+    colordelegate.h \
+    progressbardelegate.h \
+    doubledelegate.h

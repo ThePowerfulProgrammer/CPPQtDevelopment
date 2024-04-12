@@ -12,8 +12,13 @@
 #include <QStringList>
 #include <QMessageBox>
 #include <QHeaderView>
+#include <QDebug>
+#include <QSpacerItem>
+#include "colordelegate.h"
+#include "progressbardelegate.h"
+#include "doubledelegate.h"
 
-MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent)
+MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint)
 {
     // Create the first row
     composerLabel = new QLabel("Composer", this);
@@ -21,12 +26,6 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent)
     replacementCostLabel = new QLabel("Replacement Cost (R) ", this);
     ratingLabel = new QLabel("Rating", this);
 
-    QHBoxLayout *firstRow = new QHBoxLayout;
-    firstRow->addWidget(composerLabel);
-    firstRow->addWidget(albumTitleLabel);
-    firstRow->insertSpacing(1,35);
-    firstRow->addWidget(replacementCostLabel);
-    firstRow->addWidget(ratingLabel);
 
     // Create the 2nd row
     addComposer = new QLineEdit(this);
@@ -45,15 +44,35 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent)
 
     addButton = new QPushButton("Add", this);
 
-    QHBoxLayout *secondRow = new QHBoxLayout;
-    secondRow->addWidget(addComposer);
 
-    secondRow->addWidget(addAlbum);
-    secondRow->addWidget(addReplacement);
-    secondRow->addWidget(addRating);
-    secondRow->addWidget(addButton);
+    // create 4 vertical layouts
+    QVBoxLayout *firstCol = new QVBoxLayout;
+    firstCol->addWidget(composerLabel);
+    firstCol->addWidget(addComposer);
 
-    // 3rd row create my model and set the table :^)
+    QVBoxLayout *secondCol =  new QVBoxLayout;
+    secondCol->addWidget(albumTitleLabel);
+    secondCol->addWidget(addAlbum);
+
+    QVBoxLayout *thirdCol = new QVBoxLayout;
+    thirdCol->addWidget(replacementCostLabel);
+    thirdCol->addWidget(addReplacement);
+
+    QVBoxLayout *fourthCol = new QVBoxLayout;
+    fourthCol->addWidget(ratingLabel);
+    fourthCol->addWidget(addRating);
+
+    // Create 1 horizontal layout
+    QHBoxLayout *firstRow =  new QHBoxLayout;
+    firstRow->addLayout(firstCol);
+    firstRow->addLayout(secondCol);
+    firstRow->addLayout(thirdCol);
+    firstRow->addLayout(fourthCol);
+    firstRow->addWidget(addButton);
+
+
+
+    //  2nd row create my model and set the table :^)
     model = new QStandardItemModel(this);
 
     QStringList labels;
@@ -64,19 +83,28 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent)
     tableView->setModel(model);
     tableView->setShowGrid(true);
     tableView->setSortingEnabled(true);
+    tableView->setColumnWidth(2,tableView->columnWidth(2)+100);
     tableView->horizontalHeader()->setStretchLastSection(true);
 
 
-    QHBoxLayout *thirdRow = new QHBoxLayout;
-    thirdRow->addWidget(tableView);
+    // set delegates
+    ColorDelegate *colorDelegate = new ColorDelegate(this);
+    tableView->setItemDelegate(colorDelegate);
+
+    ProgressBarDelegate *bar = new ProgressBarDelegate(this);
+    tableView->setItemDelegateForColumn(3,bar);
+
+
+    QHBoxLayout *secondRow = new QHBoxLayout;
+    secondRow->addWidget(tableView);
 
     connect(addButton, SIGNAL(clicked()), this, SLOT(addDate()));
 
-    // 4th row
+    // 3rd row
     deleteButton = new QPushButton("Delete", this);
-    QHBoxLayout *fourthRow = new QHBoxLayout;
-    fourthRow->addStretch(50);
-    fourthRow->addWidget(deleteButton, Qt::AlignRight);
+    QHBoxLayout *thirdRow= new QHBoxLayout;
+    thirdRow->addStretch(50);
+    thirdRow->addWidget(deleteButton, Qt::AlignRight);
 
 
     connect(deleteButton, SIGNAL(clicked()), this, SLOT(deleteDate()));
@@ -86,8 +114,9 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent)
     mainLayout->addLayout(firstRow);
     mainLayout->addLayout(secondRow);
     mainLayout->addLayout(thirdRow);
-    mainLayout->addLayout(fourthRow);
 
+
+    setWindowTitle("Music");
     setLayout(mainLayout);
 
 }
