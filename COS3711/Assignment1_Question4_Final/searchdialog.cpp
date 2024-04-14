@@ -14,11 +14,11 @@
 #include <QTextCharFormat>
 #include <QTextCursor>
 #include <QTextDocument>
+#include <QRegularExpression>
 
 SearchDialog::SearchDialog(QWidget *parent) :
     QDialog(parent ,Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint)
 {
-
     // row 1
     loadBtn = new QPushButton("Load",this);
     processBtn = new QPushButton("Process",this);
@@ -29,24 +29,21 @@ SearchDialog::SearchDialog(QWidget *parent) :
     firstRow->addSpacing(30);
     firstRow->addWidget(processBtn);
 
-
     // 2nd row
     textEdit = new QTextEdit(this);
-
-
 
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(textEdit);
 
     // S & S
     connect(loadBtn, SIGNAL(clicked()), this, SLOT(loadData()));
+    connect(processBtn, SIGNAL(clicked()), this, SLOT(processData()));
 
 
     // main display
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstRow);
     mainLayout->addLayout(secondRow);
-
 
     setLayout(mainLayout);
     setWindowTitle("Search");
@@ -81,23 +78,33 @@ void SearchDialog::loadData()
         QString data;
 
         data += in.readAll();
+        // clear old data and set new data
         textEdit->clear();
         textEdit->setText(data);
 
-        QTextDocument *document = textEdit->document();
-        QTextCursor *cursor = new QTextCursor(document);
+        // use textEdit to set the data for required members used in processData()
+        document = new QTextDocument;
+        document = textEdit->document();
+
+        cursor = new QTextCursor(document);
         cursor->select(QTextCursor::Document);
-
-
-        QFont font;
-        font.setCapitalization(QFont::AllUppercase);  // Set the font to uppercase
-
-        QTextCharFormat format;
-        format.setFont(font);  // Set the format's font to the uppercase font
-
-        cursor->setCharFormat(format);  // Apply the format to the text
-
-        textEdit->setDocument(cursor->document());
-        textEdit->setReadOnly(true);
     }
+}
+
+void SearchDialog::processData()
+{
+    // use cursor to capatalise regexMatch
+    bool n = cursor->movePosition(QTextCursor::WordRight,QTextCursor::KeepAnchor,5);
+
+    qDebug() << n ;
+    QFont font;
+    font.setCapitalization(QFont::AllUppercase);
+
+    QTextCharFormat format;
+    format.setFont(font);
+
+    cursor->setCharFormat(format);
+
+    textEdit->setDocument(cursor->document());
+    textEdit->setReadOnly(true);
 }

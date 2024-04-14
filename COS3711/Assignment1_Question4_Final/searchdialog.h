@@ -5,6 +5,9 @@
 
 class QPushButton;
 class QTextEdit;
+class QTextDocument;
+class QTextCursor;
+
 
 class SearchDialog : public QDialog
 {
@@ -16,15 +19,15 @@ signals:
 
 public slots:
     void loadData(); // simply load in a txt file and display contents in textEdit
-//    void processData(); // process (match content to REGEXP match) and display in textEdit
+    void processData(); // process (match content to REGEXP match) and display in textEdit
 
 
 private:
     QPushButton *loadBtn;
     QPushButton *processBtn;
     QTextEdit *textEdit;
-
-
+    QTextDocument *document;
+    QTextCursor *cursor;
 };
 
 #endif // SEARCHDIALOG_H
