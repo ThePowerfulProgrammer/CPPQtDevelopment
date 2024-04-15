@@ -1,0 +1,17 @@
+This is my example file.
+
+It contains a few email addresses such as azura@gmail.com
+and no_one@nowhere.nothing
+
+This file also contains a few strings of numbers of varying formats such as:
+
+0334133138
+033-412-3921
+
+We arent done yet. We also have:
+1122334455 which is an odd string of numbers and yet we still have more (033)413-3132
+and 031-1234567
+
+Surprise -> (101)9873901
+
+surprise@qt.com

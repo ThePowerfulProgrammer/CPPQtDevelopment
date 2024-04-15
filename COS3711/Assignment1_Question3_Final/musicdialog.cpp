@@ -116,7 +116,7 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     mainLayout->addLayout(thirdRow);
 
 
-    setWindowTitle("Music");
+    setWindowTitle("My Music Dialog");
     setLayout(mainLayout);
 
 }

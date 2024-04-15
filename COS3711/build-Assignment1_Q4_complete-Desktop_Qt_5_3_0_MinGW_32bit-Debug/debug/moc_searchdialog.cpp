@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'softwarereviewdialog.h'
+** Meta object code from reading C++ file 'searchdialog.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../Assignment1_Question2_Final/softwarereviewdialog.h"
+#include "../../Assignment1_Q4_complete/searchdialog.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'softwarereviewdialog.h' doesn't include <QObject>."
+#error "The header file 'searchdialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.3.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,28 +18,27 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_SoftwareReviewDialog_t {
+struct qt_meta_stringdata_SearchDialog_t {
     QByteArrayData data[4];
-    char stringdata[52];
+    char stringdata[35];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_SoftwareReviewDialog_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_SearchDialog_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_SoftwareReviewDialog_t qt_meta_stringdata_SoftwareReviewDialog = {
+static const qt_meta_stringdata_SearchDialog_t qt_meta_stringdata_SearchDialog = {
     {
-QT_MOC_LITERAL(0, 0, 20),
-QT_MOC_LITERAL(1, 21, 17),
-QT_MOC_LITERAL(2, 39, 0),
-QT_MOC_LITERAL(3, 40, 11)
+QT_MOC_LITERAL(0, 0, 12),
+QT_MOC_LITERAL(1, 13, 8),
+QT_MOC_LITERAL(2, 22, 0),
+QT_MOC_LITERAL(3, 23, 11)
     },
-    "SoftwareReviewDialog\0addSoftwareReview\0"
-    "\0displayList"
+    "SearchDialog\0loadData\0\0processData"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_SoftwareReviewDialog[] = {
+static const uint qt_meta_data_SearchDialog[] = {
 
  // content:
        7,       // revision
@@ -63,39 +62,39 @@ static const uint qt_meta_data_SoftwareReviewDialog[] = {
        0        // eod
 };
 
-void SoftwareReviewDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void SearchDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        SoftwareReviewDialog *_t = static_cast<SoftwareReviewDialog *>(_o);
+        SearchDialog *_t = static_cast<SearchDialog *>(_o);
         switch (_id) {
-        case 0: _t->addSoftwareReview(); break;
-        case 1: _t->displayList(); break;
+        case 0: _t->loadData(); break;
+        case 1: _t->processData(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject SoftwareReviewDialog::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_SoftwareReviewDialog.data,
-      qt_meta_data_SoftwareReviewDialog,  qt_static_metacall, 0, 0}
+const QMetaObject SearchDialog::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_SearchDialog.data,
+      qt_meta_data_SearchDialog,  qt_static_metacall, 0, 0}
 };
 
 
-const QMetaObject *SoftwareReviewDialog::metaObject() const
+const QMetaObject *SearchDialog::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SoftwareReviewDialog::qt_metacast(const char *_clname)
+void *SearchDialog::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_SoftwareReviewDialog.stringdata))
-        return static_cast<void*>(const_cast< SoftwareReviewDialog*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_SearchDialog.stringdata))
+        return static_cast<void*>(const_cast< SearchDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int SoftwareReviewDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int SearchDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

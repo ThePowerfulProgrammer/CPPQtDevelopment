@@ -14,7 +14,7 @@
 #include <QMetaProperty>
 
 SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
-    QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint), hash(new QMultiHash<QString, QString>)
+    QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint)
 {
 
     // 1) Set up my widgets
@@ -40,6 +40,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
     display = new QPushButton("Display", this);
     display->setObjectName("Display");
 
+    // signals and slots
     connect(add, SIGNAL(clicked()), this, SLOT(addSoftwareReview()));
     connect(display, SIGNAL(clicked()), this, SLOT(displayList()));
 
@@ -61,14 +62,11 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
     fourthRow->addWidget(add);
     fourthRow->addWidget(display);
 
-    QHBoxLayout *fifthRow = new QHBoxLayout;
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstRow);
     mainLayout->addLayout(secondRow);
     mainLayout->addLayout(thirdRow);
     mainLayout->addLayout(fourthRow);
-    mainLayout->addLayout(fifthRow);
 
     setLayout(mainLayout);
     setWindowTitle("Software Review");
@@ -81,9 +79,12 @@ void SoftwareReviewDialog::addSoftwareReview()
     QString text = lineEdit->text();
     if (!text.isEmpty())
     {
-        QString recommendation = recommend->isChecked() ? "Yes" : "No";
-        QString key = text + "," + recommendation;
-        hash->insert(key,dateEdit->text());
+        SoftwareReview *review = new SoftwareReview(this);
+        review->setSoftwareName(text);
+        review->setReviewDate(dateEdit->date());
+        review->setIsRecommended(recommend->isChecked());
+        reviews.append(review);
+
         lineEdit->clear();
         lineEdit->setPlaceholderText("Enter Software Name");
         dateEdit->setDate(QDate::currentDate());
@@ -95,30 +96,28 @@ void SoftwareReviewDialog::addSoftwareReview()
     }
 }
 
-
 void SoftwareReviewDialog::displayList()
 {
-    if (hash->isEmpty())
+    if (reviews.isEmpty())
     {
         QMessageBox::warning(this, "No Software reviews added", "Add a Software using the interface");
         return;
     }
 
-    const QMetaObject *metaobject = this->metaObject();
-    int count = metaobject->propertyCount();
-    for (int i=0; i<count; ++i)
+    for (int i = 0; i < reviews.size(); ++i)
     {
-        QMetaProperty metaproperty = metaobject->property(i);
-        const char *name = metaproperty.name();
-        QVariant value = this->property(name);
-        qDebug() << QString("%1: %2").arg(name).arg(value.toString());
+        SoftwareReview *review = reviews.at(i);
+        const QMetaObject *metaobject = review->metaObject();
+        int count = metaobject->propertyCount();
+        for (int j = 1; j < count; ++j)
+        {
+            QMetaProperty metaproperty = metaobject->property(j);
+            const char *name = metaproperty.name();
+            QVariant value = review->property(name);
+            qDebug() << QString("%1: %2").arg(name).arg(value.toString());
+
+        }
+        qDebug() << "\n \n \n";
     }
 }
 
-
-
-
-SoftwareReviewDialog::~SoftwareReviewDialog()
-{
-    delete hash;
-}
