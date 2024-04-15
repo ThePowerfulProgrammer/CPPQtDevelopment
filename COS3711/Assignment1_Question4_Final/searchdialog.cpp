@@ -87,16 +87,19 @@ void SearchDialog::loadData()
         document = textEdit->document();
 
         cursor = new QTextCursor(document);
-        cursor->select(QTextCursor::Document);
     }
 }
 
 void SearchDialog::processData()
 {
     // use cursor to capatalise regexMatch
-    bool n = cursor->movePosition(QTextCursor::WordRight,QTextCursor::KeepAnchor,5);
+    qDebug() << "Anchor " << cursor->anchor() << "Pos: " << cursor->position() << "\n";
 
-    qDebug() << n ;
+    bool n = cursor->movePosition(QTextCursor::NextWord,QTextCursor::KeepAnchor,7);
+
+    qDebug() << n << " Anchor" << cursor->anchor() << " Pos" << cursor->position();
+
+
     QFont font;
     font.setCapitalization(QFont::AllUppercase);
 
@@ -106,5 +109,16 @@ void SearchDialog::processData()
     cursor->setCharFormat(format);
 
     textEdit->setDocument(cursor->document());
+
+    cursor->setPosition(cursor->position(),QTextCursor::MoveAnchor);
+
+    cursor->movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor, 12);
+
+    qDebug() << n << " Anchor" << cursor->anchor() << " Pos" << cursor->position();
+    cursor->setCharFormat(format);
+    textEdit->setDocument(cursor->document());
     textEdit->setReadOnly(true);
 }
+
+
+
