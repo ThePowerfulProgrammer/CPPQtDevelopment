@@ -20,11 +20,13 @@ signals:
 public slots:
     void loadData(); // simply load in a txt file and display contents in textEdit
     void processData(); // process (match content to REGEXP match) and display in textEdit
+    void processRegex();
 
 
 private:
     QPushButton *loadBtn;
     QPushButton *processBtn;
+    QPushButton *tempBtn;
     QTextEdit *textEdit;
     QTextDocument *document;
     QTextCursor *cursor;

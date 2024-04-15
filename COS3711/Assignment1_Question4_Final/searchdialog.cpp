@@ -23,11 +23,13 @@ SearchDialog::SearchDialog(QWidget *parent) :
     loadBtn = new QPushButton("Load",this);
     processBtn = new QPushButton("Process",this);
     loadBtn->setDefault(true);
+    tempBtn = new QPushButton("Regex",this);
 
     QHBoxLayout *firstRow = new QHBoxLayout;
     firstRow->addWidget(loadBtn);
     firstRow->addSpacing(30);
     firstRow->addWidget(processBtn);
+    firstRow->addWidget(tempBtn);
 
     // 2nd row
     textEdit = new QTextEdit(this);
@@ -38,6 +40,7 @@ SearchDialog::SearchDialog(QWidget *parent) :
     // S & S
     connect(loadBtn, SIGNAL(clicked()), this, SLOT(loadData()));
     connect(processBtn, SIGNAL(clicked()), this, SLOT(processData()));
+    connect(tempBtn, SIGNAL(clicked()), this, SLOT(processRegex()));
 
 
     // main display
@@ -120,5 +123,31 @@ void SearchDialog::processData()
     textEdit->setReadOnly(true);
 }
 
+void SearchDialog::processRegex()
+{
+    QRegularExpression re;
+    re.setPattern("(\\d{3}-\\d{3}-\\d{4}|\\d{3}-\\d{7}|\\d{10}|\\(\\d{3}\\)\\d{3}-\\d{4}|\\(\\d{3}\\)\\d{7})|\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b");
 
+    QRegularExpressionMatchIterator matchIterator = re.globalMatch(cursor->document()->toPlainText());
+    while (matchIterator.hasNext())
+    {
+        QRegularExpressionMatch match = matchIterator.next();
+        qDebug() << "Match at: " << match.capturedStart();
+        qDebug() << " Match: " << match.captured(0) << "\n";
+        cursor->setPosition(match.capturedStart(),QTextCursor::MoveAnchor);
+        qDebug() << "Anchor " << cursor->anchor() << "Pos: " << cursor->position() << "\n";
+        cursor->setPosition(match.capturedEnd(),QTextCursor::KeepAnchor);
+        qDebug() << "Anchor " << cursor->anchor() << "Pos: " << cursor->position() << "\n";
+        QTextCharFormat format;
+        format.setFontWeight(50);
+        QFont font;
+        font.setBold(true);
+        format.setFont(font);
+        cursor->setCharFormat(format);
+        textEdit->setDocument(cursor->document());
+    }
+
+
+
+}
 
