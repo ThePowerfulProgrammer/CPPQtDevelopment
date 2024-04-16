@@ -31,7 +31,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
     dateLabel = new QLabel("Date", this);
     dateLabel->setBuddy(dateEdit);
 
-    recommened = new QCheckBox("Recommend", this);
+    recommend = new QCheckBox("Recommend", this);
 
     add = new QPushButton("Add",this);
     add->setObjectName("add");
@@ -55,7 +55,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
 
     QHBoxLayout *thirdRow = new QHBoxLayout;
     thirdRow->addStretch();
-    thirdRow->addWidget(recommened);
+    thirdRow->addWidget(recommend);
 
     QHBoxLayout *fourthRow = new QHBoxLayout;
     fourthRow->addWidget(add);
@@ -78,13 +78,13 @@ void SoftwareReviewDialog::addSoftwareReview()
     QString text = lineEdit->text();
     if (!text.isEmpty())
     {
-        QString recommendation = recommened->isChecked() ? "Yes" : "No";
+        QString recommendation = recommend->isChecked() ? "Yes" : "No";
         QString key = text + "," + recommendation;
         hash->insert(key,dateEdit->text());
         lineEdit->clear();
         lineEdit->setPlaceholderText("Enter Software Name");
         dateEdit->setDate(QDate::currentDate());
-        recommened->setChecked(false);
+        recommend->setChecked(false);
     }
     else
     {

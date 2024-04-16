@@ -29,7 +29,7 @@ private:
     QDateEdit *dateEdit;
     QPushButton *add;
     QPushButton *display;
-    QCheckBox *recommened;
+    QCheckBox *recommend;
     QMultiHash<QString,QString> *hash;
 
 };
