@@ -1,0 +1,72 @@
+QLineEdit {
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+QDateEdit {
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+
+QLabel {
+    font-family: Arial Black, Arial;
+}
+
+QPushButton {
+    font-family: Segoe UI, Arial;
+}
+
+QPushButton#Add {
+    background-color: #fffcff;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #000D1A;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+
+QPushButton#Add:hover {
+    background-color: #dcd0ff;
+}
+
+
+QPushButton#Add:pressed {
+    background-color: #b296ff;
+    border-style: inset;
+}
+
+QPushButton#Display {
+    background-color: #fffcff;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #000D1A;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+
+
+QPushButton#Display:hover {
+    background-color: #dcd0ff;
+}
+
+QPushButton#Display:pressed {
+    background-color: #b296ff;
+    border-style: inset;
+}
+
+QLineEdit {
+    font-family: Georgia, Arial;
+}
+
+QCheckBox {
+    font-family: Georgia, Arial;
+}

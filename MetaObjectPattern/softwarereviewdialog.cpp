@@ -35,9 +35,10 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
     recommend = new QCheckBox("Recommend", this);
 
     add = new QPushButton("Add",this);
-    add->setObjectName("add");
+    add->setObjectName("Add");
     add->setDefault(true);
     display = new QPushButton("Display", this);
+    display->setObjectName("Display");
     display->setObjectName("Display");
 
     // signals and slots
@@ -69,7 +70,7 @@ SoftwareReviewDialog::SoftwareReviewDialog(QWidget *parent) :
     mainLayout->addLayout(fourthRow);
 
     setLayout(mainLayout);
-    setWindowTitle("Software Review");
+    setWindowTitle("Software Review Reflection pattern");
     setFixedHeight(sizeHint().height());
     resize(300, height());
 }

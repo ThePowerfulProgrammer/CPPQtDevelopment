@@ -2,27 +2,27 @@
 #define SOFTWAREREVIEWDIALOG_H
 
 #include <QDialog>
-#include <QMultiHash>
+#include "softwarereview.h"
 
-// foward declarations
 class QCheckBox;
 class QLineEdit;
 class QLabel;
 class QPushButton;
 class QDateEdit;
+class QList<SoftwareReview>;
 
 class SoftwareReviewDialog : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit SoftwareReviewDialog(QWidget *parent = 0);
-    ~SoftwareReviewDialog();
 
+signals:
 
 public slots:
     void addSoftwareReview();
     void displayList();
+
 
 private:
     QLabel *nameLabel;
@@ -33,8 +33,7 @@ private:
     QPushButton *display;
     QPushButton *displayReviewBtn;
     QCheckBox *recommend;
-    QMultiHash<QString,QString> *hash;
-
+    QList<SoftwareReview*> reviews;
 };
 
 #endif // SOFTWAREREVIEWDIALOG_H

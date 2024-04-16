@@ -21,4 +21,5 @@ SOURCES += main.cpp \
     softwarereviewdialog.cpp
 
 HEADERS += \
-    softwarereviewdialog.h
+    softwarereviewdialog.h \
+    softwarereview.h
