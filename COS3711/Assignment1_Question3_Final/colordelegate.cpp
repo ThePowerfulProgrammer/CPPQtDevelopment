@@ -48,5 +48,16 @@ void ColorDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 void ColorDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QStyledItemDelegate::setModelData(editor, model, index);
-    editedRows.insert(index.row());
+
+    int row = index.row();
+    if (editedRows.find(row) == editedRows.constEnd() )
+    {
+        editedRows.insert(row);
+    }
+    else
+    {
+        editedRows.remove(row);
+    }
+
+
 }

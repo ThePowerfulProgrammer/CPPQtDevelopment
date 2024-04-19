@@ -24,7 +24,6 @@ public:
 private slots:
     void addSoftware();
     void displayList();
-    void displayListReflective();
 
 private:
     QLabel *nameLabel;
@@ -33,7 +32,6 @@ private:
     QDateEdit *dateEdit;
     QPushButton *add;
     QPushButton *display;
-    QPushButton *reflectiveDisplay;
     QCheckBox *recommended;
     QMultiHash<QString, QString> *hash;
 };
