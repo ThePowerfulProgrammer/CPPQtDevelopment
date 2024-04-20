@@ -29,6 +29,7 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
 
     // Create the 2nd row
     addComposer = new QLineEdit(this);
+    addComposer->setFocus();
     addComposer->setPlaceholderText("Composer");
 
     addAlbum = new QLineEdit(this);
@@ -137,6 +138,7 @@ void MusicDialog::addDate()
 
         addComposer->clear();
         addComposer->setPlaceholderText("Composer");
+        addComposer->setFocus();
         addAlbum->clear();
         addAlbum->setPlaceholderText("Album");
         addReplacement->setValue(0.00);
