@@ -32,7 +32,7 @@ SearchDialog::SearchDialog(QWidget *parent) :
     // row 2
     textEdit = new QTextEdit(this);
     textEdit->setText("Load in a text file using Load button. \nCheck for a regular expression match using the process button once a file has been loaded");
-
+    textEdit->setReadOnly(true);
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(textEdit);
 
@@ -82,6 +82,7 @@ void SearchDialog::loadData()
         // clear old data and set new data
         textEdit->clear();
         textEdit->setText(data);
+        textEdit->setReadOnly(true);
 
         // use textEdit to set the data for required members used in processData()
         document = new QTextDocument;
