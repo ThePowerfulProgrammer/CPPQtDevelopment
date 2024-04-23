@@ -332,10 +332,7 @@ debug/main.o: ../RegexSearchAndMatch/main.cpp C:/Qt/Qt5.3.0/5.3/mingw482_32/incl
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qinputmethod.h \
-		../RegexSearchAndMatch/searchdialog.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QDialog \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qdialog.h
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\RegexSearchAndMatch\main.cpp
 
 debug/searchdialog.o: ../RegexSearchAndMatch/searchdialog.cpp ../RegexSearchAndMatch/searchdialog.h \
@@ -466,14 +463,14 @@ debug/searchdialog.o: ../RegexSearchAndMatch/searchdialog.cpp ../RegexSearchAndM
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qfiledialog.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qdir.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfileinfo.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QTextStream \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QFont \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QTextCharFormat \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QRegularExpression \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qregularexpression.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QTextStream
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\searchdialog.o ..\RegexSearchAndMatch\searchdialog.cpp
 
 debug/moc_searchdialog.o: debug/moc_searchdialog.cpp 

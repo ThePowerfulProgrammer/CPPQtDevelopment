@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+// fwd declarations
 class QPushButton;
 class QTextEdit;
 class QTextDocument;
@@ -17,8 +18,8 @@ public:
 signals:
 
 public slots:
-    void loadDate(); // load in a text file for processing
-    void processData(); // process (search file for Regex match)
+    void loadData();
+    void processData();
 
 private:
     QPushButton *loadBtn;

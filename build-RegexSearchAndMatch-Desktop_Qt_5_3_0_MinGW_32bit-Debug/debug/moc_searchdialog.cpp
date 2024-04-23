@@ -34,7 +34,7 @@ QT_MOC_LITERAL(1, 13, 8),
 QT_MOC_LITERAL(2, 22, 0),
 QT_MOC_LITERAL(3, 23, 11)
     },
-    "searchDialog\0loadDate\0\0processData"
+    "searchDialog\0loadData\0\0processData"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +67,7 @@ void searchDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     if (_c == QMetaObject::InvokeMetaMethod) {
         searchDialog *_t = static_cast<searchDialog *>(_o);
         switch (_id) {
-        case 0: _t->loadDate(); break;
+        case 0: _t->loadData(); break;
         case 1: _t->processData(); break;
         default: ;
         }
