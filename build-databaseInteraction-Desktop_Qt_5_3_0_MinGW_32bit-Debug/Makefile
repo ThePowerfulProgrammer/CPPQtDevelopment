@@ -173,6 +173,7 @@ Makefile: ../databaseInteraction/databaseInteraction.pro C:/Qt/Qt5.3.0/5.3/mingw
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/lex.prf \
 		../databaseInteraction/databaseInteraction.pro \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Sql.prl \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Core.prl
 	$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile ..\databaseInteraction\databaseInteraction.pro
@@ -290,6 +291,7 @@ C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\yacc.prf:
 C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\lex.prf:
 ..\databaseInteraction\databaseInteraction.pro:
 C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Sql.prl:
 C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Core.prl:
 qmake: FORCE

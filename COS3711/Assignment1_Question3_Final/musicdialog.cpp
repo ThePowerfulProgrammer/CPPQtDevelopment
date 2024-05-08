@@ -95,7 +95,10 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     ProgressBarDelegate *bar = new ProgressBarDelegate(this);
     tableView->setItemDelegateForColumn(3,bar);
 
+//    DoubleDelegate *dd = new DoubleDelegate(this);
+//    tableView->setItemDelegateForColumn(2, dd);
 
+    // 2nd row
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(tableView);
 

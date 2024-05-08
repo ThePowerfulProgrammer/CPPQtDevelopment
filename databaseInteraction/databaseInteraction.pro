@@ -10,7 +10,7 @@ QT       += gui
 
 QT       += widgets
 
-Qt       += sql
+QT       += sql
 
 TARGET = databaseInteraction
 CONFIG   += console
