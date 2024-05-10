@@ -1,0 +1,33 @@
+Implement a AlbumManagementSystem using the MVC design pattern
+Model must store:
+    composer
+    album name
+    replacement value
+    rating
+
+View must be:
+    TableView
+
+
+Delegate must be implemented for:
+    rating col
+    replacement value col
+
+
+Interface requirements:
+header row
+add row functionality
+delete row functionality
+input areas
+input labels
+column sorting
+
+
+Col requirements:
+Where the replacement value is greater than or equal to R200, the row should be
+made a different colour.  Note that this colour should also change if the user edits a
+replacement value (and it should return to the normal colour if the value drops below
+R200)
+replacement value must appear as a float
+
+rating must consume remaining space and be presented using a delegate

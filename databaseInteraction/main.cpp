@@ -13,20 +13,26 @@ int main(int argc, char *argv[]) {
     db.setUserName("root");
     db.setPassword("Powerful_Sql");
 
-    if(db.open()) {
+    if(db.open())
+    {
         qDebug() << "Connected to the database.";
 
         QSqlQuery query;
-        if(query.exec("SHOW TABLES")) {
-            while(query.next()) {
+        if(query.exec("SHOW TABLES"))
+        {
+            while(query.next())
+            {
                 qDebug() << query.value(0).toString();
             }
-        } else {
+        } else
+        {
             qDebug() << "Query failed: " << query.lastError();
         }
 
         db.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "Connection failed: " << db.lastError();
     }
 
