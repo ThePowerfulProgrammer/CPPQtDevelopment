@@ -24,6 +24,8 @@ signals:
 public slots:
     // Add row of data to system
     void addData();
+    // delete a row of data
+    void deleteData();
 
 private:
     // 1st row

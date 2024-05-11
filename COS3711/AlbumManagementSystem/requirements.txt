@@ -31,3 +31,7 @@ R200)
 replacement value must appear as a float
 
 rating must consume remaining space and be presented using a delegate
+
+To-do:
+    2024/05/11:
+        Implement Rating Delegate -> ProgressBar

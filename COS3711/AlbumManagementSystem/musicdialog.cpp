@@ -14,7 +14,9 @@
 #include <QHeaderView>
 #include <QDebug>
 #include <QSpacerItem>
+#include <QVariant>
 
+#include "progressbardelegate.h"
 
 MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint)
 {
@@ -83,6 +85,8 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     tableView->setColumnWidth(2,tableView->columnWidth(2)+100);
     tableView->horizontalHeader()->setStretchLastSection(true);
 
+    ProgressBarDelegate *progressBar = new ProgressBarDelegate(this);
+    tableView->setItemDelegateForColumn(2,progressBar);
     // 2nd row
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(tableView);
@@ -91,9 +95,10 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     // S and S
     connect(addButton, SIGNAL(clicked()), this, SLOT(addData()));
 
-
     // 3rd row
     deleteButton = new QPushButton("Delete", this);
+    connect(deleteButton, SIGNAL(clicked()), this, SLOT(deleteData()));
+
     QHBoxLayout *thirdRow= new QHBoxLayout;
     thirdRow->addStretch(50);
     thirdRow->addWidget(deleteButton, Qt::AlignRight);
@@ -140,9 +145,23 @@ void MusicDialog::addData()
         // Insert a new row into the model
         int row = model->rowCount();
         model->insertRow(row, QList<QStandardItem*>() << composer_item << album_item << replacement_item << rating_item);
+        QVariant obj =  model->data(model->index(0,0),Qt::EditRole);
+        qDebug() << obj.toString() << "\n";
     }
     else
     {
         QMessageBox::information(this, "Values missing", "Add Appropriate Data in the forms");
+    }
+}
+
+void MusicDialog::deleteData()
+{
+    if (model->rowCount() > 0)
+    {
+        model->removeRow(model->rowCount() - 1);
+    }
+    else
+    {
+        QMessageBox::information(this,"No Table Data", "Cannot remove that which does not exist");
     }
 }
