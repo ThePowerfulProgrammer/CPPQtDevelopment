@@ -71,13 +71,13 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
 
 
     // 2nd row: create the model and set the view
-    model = new QStandardItemModel;
+    model = new QStandardItemModel(this);
 
     QStringList labels;
     labels << "Composer" << "Album title" << "Replacement Cost (R)" << "Rating";
     model->setHorizontalHeaderLabels(labels);
 
-    tableView = new QTableView;
+    tableView = new QTableView(this);
     tableView->setModel(model);
     tableView->setGridStyle(Qt::DashLine);
     tableView->setShowGrid(true);
@@ -86,7 +86,7 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     tableView->horizontalHeader()->setStretchLastSection(true);
 
     ProgressBarDelegate *progressBar = new ProgressBarDelegate(this);
-    tableView->setItemDelegateForColumn(2,progressBar);
+    tableView->setItemDelegateForColumn(3,progressBar);
     // 2nd row
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(tableView);

@@ -1,10 +1,30 @@
 #include "progressbardelegate.h"
 #include <QProgressBar>
 #include <QPainter>
+#include <QSpinBox>
+
 ProgressBarDelegate::ProgressBarDelegate(QObject *parent) :
     QStyledItemDelegate(parent)
 {
 }
+
+// Double click the editor and createEditor() runs
+QWidget *ProgressBarDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    QSpinBox *boxEditor = new QSpinBox(parent);
+    boxEditor->setValue(index.model()->data(index,Qt::EditRole).toInt());
+    boxEditor->setRange(0,10);
+    return boxEditor;
+}
+
+void ProgressBarDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    int value = index.model()->data(index,Qt::EditRole).toInt();
+
+    QSpinBox *boxEditor = new QSpinBox;
+    boxEditor->setValue(value);
+}
+
 
 void ProgressBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
