@@ -17,6 +17,7 @@
 #include <QVariant>
 
 #include "progressbardelegate.h"
+#include "doubledelegate.h"
 
 MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint)
 {
@@ -85,8 +86,14 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     tableView->setColumnWidth(2,tableView->columnWidth(2)+100);
     tableView->horizontalHeader()->setStretchLastSection(true);
 
+    // set delegates
     ProgressBarDelegate *progressBar = new ProgressBarDelegate(this);
+    DoubleDelegate *doubleDelegate = new DoubleDelegate(this);
+    tableView->setItemDelegateForColumn(2,doubleDelegate);
     tableView->setItemDelegateForColumn(3,progressBar);
+
+
+
     // 2nd row
     QHBoxLayout *secondRow = new QHBoxLayout;
     secondRow->addWidget(tableView);

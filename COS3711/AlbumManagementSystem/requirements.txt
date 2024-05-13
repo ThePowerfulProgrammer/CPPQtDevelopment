@@ -34,4 +34,7 @@ rating must consume remaining space and be presented using a delegate
 
 To-do:
     2024/05/11:
-        Implement Rating Delegate -> ProgressBar
+        Implement Rating Delegate -> ProgressBar Done
+
+    2024/05/13:
+        Implement the Float repr of the replacement col

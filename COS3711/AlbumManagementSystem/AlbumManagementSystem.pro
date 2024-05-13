@@ -19,11 +19,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     musicdialog.cpp \
-    progressbardelegate.cpp
+    progressbardelegate.cpp \
+    doubledelegate.cpp
 
 OTHER_FILES += \
     requirements.txt
 
 HEADERS += \
     musicdialog.h \
-    progressbardelegate.h
+    progressbardelegate.h \
+    doubledelegate.h
