@@ -2,6 +2,9 @@
 #define DOUBLEDELEGATE_H
 
 #include <QStyledItemDelegate>
+#include <QString>
+#include <QLineEdit>
+#include <QPainter>
 
 class DoubleDelegate : public QStyledItemDelegate
 {
@@ -10,7 +13,7 @@ public:
     explicit DoubleDelegate(QObject *parent = 0);
 
 
-    // edit the basic views of the column
+    // Alter the standard apperance of a column
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 

@@ -1,29 +1,41 @@
 #include "doubledelegate.h"
-
-
+#include <QString>
+#include <QDebug>
 
 DoubleDelegate::DoubleDelegate(QObject *parent) :
     QStyledItemDelegate(parent)
 {
 }
 
+
 void DoubleDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (index.column() == 2)
     {
-        int value = index.model()->data(index,Qt::DisplayRole).toInt();
-        double doubleRepr = static_cast<double>(value);
+        double initialValue = index.model()->data(index,Qt::EditRole).toDouble();
+        QString doubleRepr = QString::number(initialValue,'f',2);
 
-        QString displayString = QString::number(doubleRepr, 'f', 2); // Convert the double to a string with 2 decimal places
+        QLineEdit *lineEdit = new QLineEdit;
+        lineEdit->setPlaceholderText(doubleRepr);
+        lineEdit->setGeometry(option.rect);
 
-        QStyleOptionViewItem myOption = option;
-        myOption.text = displayString;
+        lineEdit->setStyleSheet("QLineEdit {"
+                                "border: 1px solid grey;"
+                                "text-align:center;"
+                                "background: white;"
+                                "font: bold 14px;"
+                                "font-family: Helvetica;"
+                                "color: black;"
+                                "}");
 
-        QStyledItemDelegate::paint(painter, myOption, index);
+        painter->save();
+        painter->translate(option.rect.topLeft());
+        lineEdit->render(painter);
+        painter->restore();
     }
     else
     {
-        QStyledItemDelegate::paint(painter, option, index);
+        QStyledItemDelegate::paint(painter,option,index);
     }
 }
 

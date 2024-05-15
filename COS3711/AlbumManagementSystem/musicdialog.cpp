@@ -87,11 +87,10 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     tableView->horizontalHeader()->setStretchLastSection(true);
 
     // set delegates
-    ProgressBarDelegate *progressBar = new ProgressBarDelegate(this);
+    ProgressBarDelegate *progressBarDelegate = new ProgressBarDelegate(this);
     DoubleDelegate *doubleDelegate = new DoubleDelegate(this);
     tableView->setItemDelegateForColumn(2,doubleDelegate);
-    tableView->setItemDelegateForColumn(3,progressBar);
-
+    tableView->setItemDelegateForColumn(3,progressBarDelegate);
 
 
     // 2nd row
