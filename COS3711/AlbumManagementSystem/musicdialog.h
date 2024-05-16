@@ -27,6 +27,8 @@ public slots:
     // delete a row of data
     void deleteData();
 
+    void print();
+
 private:
     // 1st row
     QLabel *composerLabel;

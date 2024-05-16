@@ -92,6 +92,7 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     tableView->setItemDelegateForColumn(2,doubleDelegate);
     tableView->setItemDelegateForColumn(3,progressBarDelegate);
 
+    connect(model,SIGNAL(itemChanged(QStandardItem*)), this, SLOT(print()));
 
     // 2nd row
     QHBoxLayout *secondRow = new QHBoxLayout;
@@ -101,9 +102,12 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     // S and S
     connect(addButton, SIGNAL(clicked()), this, SLOT(addData()));
 
+
     // 3rd row
     deleteButton = new QPushButton("Delete", this);
     connect(deleteButton, SIGNAL(clicked()), this, SLOT(deleteData()));
+
+
 
     QHBoxLayout *thirdRow= new QHBoxLayout;
     thirdRow->addStretch(50);
@@ -151,8 +155,6 @@ void MusicDialog::addData()
         // Insert a new row into the model
         int row = model->rowCount();
         model->insertRow(row, QList<QStandardItem*>() << composer_item << album_item << replacement_item << rating_item);
-        QVariant obj =  model->data(model->index(0,0),Qt::EditRole);
-        qDebug() << obj.toString() << "\n";
     }
     else
     {
@@ -170,4 +172,11 @@ void MusicDialog::deleteData()
     {
         QMessageBox::information(this,"No Table Data", "Cannot remove that which does not exist");
     }
+}
+
+
+void MusicDialog::print()
+{
+   qDebug() << "Iterm changed" << "\n";
+
 }
