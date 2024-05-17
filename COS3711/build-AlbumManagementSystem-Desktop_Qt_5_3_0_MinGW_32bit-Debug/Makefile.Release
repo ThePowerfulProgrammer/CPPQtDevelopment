@@ -458,6 +458,15 @@ release/moc_doubledelegate.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qrubberband.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QString \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QPainter \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qpainter.h \
 		../AlbumManagementSystem/doubledelegate.h
 	C:\Qt\Qt5.3.0\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/win32-g++ -IC:/Users/ashis/OneDrive/Desktop/Qt/COS3711/AlbumManagementSystem -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore -I. ..\AlbumManagementSystem\doubledelegate.h -o release\moc_doubledelegate.cpp
 
@@ -746,7 +755,8 @@ release/musicdialog.o: ../AlbumManagementSystem/musicdialog.cpp ../AlbumManageme
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QPainter \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QModelIndex \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QStyleOptionViewItem
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QStyleOptionViewItem \
+		../AlbumManagementSystem/doubledelegate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\musicdialog.o ..\AlbumManagementSystem\musicdialog.cpp
 
 release/progressbardelegate.o: ../AlbumManagementSystem/progressbardelegate.cpp ../AlbumManagementSystem/progressbardelegate.h \
@@ -992,7 +1002,18 @@ release/doubledelegate.o: ../AlbumManagementSystem/doubledelegate.cpp ../AlbumMa
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qrubberband.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qabstractitemmodel.h
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QString \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QPainter \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qpainter.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QFont
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\doubledelegate.o ..\AlbumManagementSystem\doubledelegate.cpp
 
 release/moc_musicdialog.o: release/moc_musicdialog.cpp 

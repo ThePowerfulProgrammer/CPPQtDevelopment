@@ -80,7 +80,7 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
 
     tableView = new QTableView(this);
     tableView->setModel(model);
-    tableView->setGridStyle(Qt::DashLine);
+    tableView->setGridStyle(Qt::SolidLine);
     tableView->setShowGrid(true);
     tableView->setSortingEnabled(true);
     tableView->setColumnWidth(2,tableView->columnWidth(2)+100);
@@ -90,7 +90,10 @@ MusicDialog::MusicDialog(QWidget *parent) : QDialog(parent, Qt::Window | Qt::Win
     ProgressBarDelegate *progressBarDelegate = new ProgressBarDelegate(this);
     DoubleDelegate *doubleDelegate = new DoubleDelegate(this);
     tableView->setItemDelegateForColumn(2,doubleDelegate);
+    tableView->setItemDelegateForColumn(1,doubleDelegate);
+    tableView->setItemDelegateForColumn(0,doubleDelegate);
     tableView->setItemDelegateForColumn(3,progressBarDelegate);
+
 
     connect(model,SIGNAL(itemChanged(QStandardItem*)), this, SLOT(print()));
 

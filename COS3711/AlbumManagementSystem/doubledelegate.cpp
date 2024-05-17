@@ -39,7 +39,6 @@ void DoubleDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
         QStyledItemDelegate::paint(painter,option,index);
     }
 
-
     if (index.column() < 3)
     {
         QStyleOptionViewItem opt = option;
