@@ -1,34 +1,46 @@
-#include <QApplication>
+#include <QCoreApplication>
 
-#include <QtSql/QSqlQuery>
-#include <QDebug>
+
+#include <QSqlQuery>
 #include <QSqlError>
-#include <QSqlDatabase>
-#include <QtSql>
+#include <QDebug>
+#include <QtSql/QtSql>
+#include <QtSql/QSqlDatabase>
+
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
+    QCoreApplication a(argc, argv);
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
     db.setUserName("root");
-    db.setDatabaseName("testdbs");
     db.setPassword("Powerful_Sql");
+    db.setDatabaseName("testdbs");
 
-    qDebug() << QSqlDatabase::drivers() << " \n";
 
-    if(db.open())
+
+
+    if (!db.open())
     {
-        qDebug() << "Connected to the database.";
-
-
-        db.close();
-    }
-    else
-    {
-        qDebug() << "Connection failed: ";
+        qDebug() << "Error: Unable to connect to database.";
+        qDebug() << "Error Details:" << db.lastError().text();
+        return 1;
     }
 
+    QSqlQuery query;
+    if (query.exec("SELECT * FROM exercise"))
+    {
+        while (query.next())
+        {
+            QString record = query.value(0).toString();
+            qDebug() << "Record:" << record;
+        }
+    } else
+    {
+        qDebug() << "Query Error:" << query.lastError().text();
+    }
+
+    db.close();
 
 
     return a.exec();

@@ -11,12 +11,13 @@ DoubleDelegate::DoubleDelegate(QObject *parent) :
 
 void DoubleDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    QLineEdit *lineEdit = new QLineEdit;
     if (index.column() == 2)
     {
         double initialValue = index.model()->data(index,Qt::EditRole).toDouble();
         QString doubleRepr = QString::number(initialValue,'f',2);
 
-        QLineEdit *lineEdit = new QLineEdit;
+
         lineEdit->setPlaceholderText(doubleRepr);
         lineEdit->setGeometry(option.rect);
 
@@ -41,21 +42,17 @@ void DoubleDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 
     if (index.column() < 3)
     {
-        QStyleOptionViewItem opt = option;
 
-        QFont font("Oswald",-1,1,true);
-        font.setUnderline(true);
-
-        int value = index.model()->data(index.model()->index(index.row(),2)).toInt();
+        int value = index.model()->data(index.model()->index(index.row(), 2)).toInt();
 
         if (value > 199)
         {
-            QColor color;
-            color.setRgb(0,120,0);
-            painter->fillRect(option.rect,color);
-            opt.font = font;
-            opt.backgroundBrush = Qt::NoBrush;
+            QColor bgColor(255, 0, 0); // Red background color
+            QColor fontColor(0, 0, 0); // White font color
 
+            QPen pen(fontColor);
+            painter->setPen(pen);
+            painter->fillRect(option.rect, bgColor);
         }
 
 
