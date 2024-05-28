@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\widget.o
+./debug\parentbutton.o
+./debug\childbutton.o
+./debug\parentlineedit.o
+./debug\childlineedit.o
+./debug\moc_widget.o
+./debug\moc_parentbutton.o
+./debug\moc_childbutton.o
+./debug\moc_parentlineedit.o
+./debug\moc_childlineedit.o
+);

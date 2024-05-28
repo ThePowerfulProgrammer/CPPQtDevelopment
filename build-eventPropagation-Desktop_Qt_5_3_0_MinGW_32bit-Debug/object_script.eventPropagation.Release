@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\widget.o
+./release\parentbutton.o
+./release\childbutton.o
+./release\parentlineedit.o
+./release\childlineedit.o
+./release\moc_widget.o
+./release\moc_parentbutton.o
+./release\moc_childbutton.o
+./release\moc_parentlineedit.o
+./release\moc_childlineedit.o
+);

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "childbutton.h"
-
+#include "childlineedit.h"
 
 namespace Ui {
 class Widget;

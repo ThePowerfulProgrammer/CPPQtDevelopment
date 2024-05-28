@@ -11,9 +11,14 @@ Widget::Widget(QWidget *parent) :
     ChildButton *button= new ChildButton(this);
     button->setText("Child Button");
 
+    ChildLineEdit *lineEdit = new ChildLineEdit(this);
+    lineEdit->setPlaceholderText("Type: ");
+
 
 
     ui->verticalLayout_2->addWidget(button);
+    ui->verticalLayout_2->addSpacing(10);
+    ui->verticalLayout_2->addWidget(lineEdit);
 
 
 }
