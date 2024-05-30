@@ -13,11 +13,16 @@ Widget::Widget(QWidget *parent) :
     btn->setText("Btn");
 
 
-//    connect(btn, &Button::clicked,[=](){ qDebug() << "This will not trigger" << "\n";}      ) ;
+    connect(btn,SIGNAL(clicked()), this, SLOT(emitMessage()));
     ui->verticalLayout->addWidget(btn);
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+void Widget::emitMessage()
+{
+    qDebug() << "this will not trigger" << "\n";
 }

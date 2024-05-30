@@ -15,8 +15,8 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
-public slots:
-    void emitMessage();
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Widget *ui;
