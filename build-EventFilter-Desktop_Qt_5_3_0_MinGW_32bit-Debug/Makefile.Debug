@@ -45,13 +45,17 @@ OBJECTS_DIR   = debug
 
 SOURCES       = ..\EventFilter\main.cpp \
 		..\EventFilter\widget.cpp \
-		..\EventFilter\filter.cpp debug\moc_widget.cpp \
-		debug\moc_filter.cpp
+		..\EventFilter\filter.cpp \
+		..\EventFilter\keyboardfilter.cpp debug\moc_widget.cpp \
+		debug\moc_filter.cpp \
+		debug\moc_keyboardfilter.cpp
 OBJECTS       = debug/main.o \
 		debug/widget.o \
 		debug/filter.o \
+		debug/keyboardfilter.o \
 		debug/moc_widget.o \
-		debug/moc_filter.o
+		debug/moc_filter.o \
+		debug/moc_keyboardfilter.o
 
 DIST          = 
 QMAKE_TARGET  = EventFilter
@@ -92,7 +96,7 @@ dist:
 	$(ZIP) EventFilter.zip $(SOURCES) $(DIST) ..\EventFilter\EventFilter.pro C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\qdevice.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\device_config.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\common\shell-win32.conf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\qconfig.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_declarative.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_declarative_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_enginio.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_enginio_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_webkit.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\qt_config.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\spec_post.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\default_post.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\qt.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\resources.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\moc.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\uic.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\windows.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\yacc.prf C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\lex.prf ..\EventFilter\EventFilter.pro C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Widgetsd.prl C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Guid.prl C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\widget.o debug\filter.o debug\moc_widget.o debug\moc_filter.o
+	-$(DEL_FILE) debug\main.o debug\widget.o debug\filter.o debug\keyboardfilter.o debug\moc_widget.o debug\moc_filter.o debug\moc_keyboardfilter.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -108,9 +112,9 @@ compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: debug/moc_widget.cpp debug/moc_filter.cpp
+compiler_moc_header_make_all: debug/moc_widget.cpp debug/moc_filter.cpp debug/moc_keyboardfilter.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_widget.cpp debug\moc_filter.cpp
+	-$(DEL_FILE) debug\moc_widget.cpp debug\moc_filter.cpp debug\moc_keyboardfilter.cpp
 debug/moc_widget.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qwidget.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qwindowdefs.h \
@@ -265,6 +269,58 @@ debug/moc_filter.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QObject \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobject_impl.h \
 		../EventFilter/filter.h
 	C:\Qt\Qt5.3.0\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/win32-g++ -IC:/Users/ashis/OneDrive/Desktop/Qt/EventFilter -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore -I. ..\EventFilter\filter.h -o debug\moc_filter.cpp
+
+debug/moc_keyboardfilter.cpp: C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QObject \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfeatures.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qtypetraits.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qisenum.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobject_impl.h \
+		../EventFilter/keyboardfilter.h
+	C:\Qt\Qt5.3.0\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/win32-g++ -IC:/Users/ashis/OneDrive/Desktop/Qt/EventFilter -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui -IC:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore -I. ..\EventFilter\keyboardfilter.h -o debug\moc_keyboardfilter.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -499,7 +555,45 @@ debug/widget.o: ../EventFilter/widget.cpp ../EventFilter/widget.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
-		ui_widget.h
+		ui_widget.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QAction \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug \
+		../EventFilter/keyboardfilter.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\EventFilter\widget.cpp
 
 debug/filter.o: ../EventFilter/filter.cpp ../EventFilter/filter.h \
@@ -573,11 +667,99 @@ debug/filter.o: ../EventFilter/filter.cpp ../EventFilter/filter.h \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\filter.o ..\EventFilter\filter.cpp
 
+debug/keyboardfilter.o: ../EventFilter/keyboardfilter.cpp ../EventFilter/keyboardfilter.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QObject \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfeatures.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qtypetraits.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qisenum.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\keyboardfilter.o ..\EventFilter\keyboardfilter.cpp
+
 debug/moc_widget.o: debug/moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_widget.o debug\moc_widget.cpp
 
 debug/moc_filter.o: debug/moc_filter.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_filter.o debug\moc_filter.cpp
+
+debug/moc_keyboardfilter.o: debug/moc_keyboardfilter.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_keyboardfilter.o debug\moc_keyboardfilter.cpp
 
 ####### Install
 

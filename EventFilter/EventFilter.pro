@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    filter.cpp
+    filter.cpp \
+    keyboardfilter.cpp
 
 HEADERS  += widget.h \
-    filter.h
+    filter.h \
+    keyboardfilter.h
 
 FORMS    += widget.ui
