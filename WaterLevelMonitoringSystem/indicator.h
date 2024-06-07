@@ -13,6 +13,7 @@ public:
 signals:
 
 public slots:
+    void colorToggle();
 
 private:
 
@@ -21,10 +22,10 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-
     bool greenActive;
     bool redActive;
     bool yellowActive;
+    bool lightsOn;
 };
 
 #endif // INDICATOR_H
