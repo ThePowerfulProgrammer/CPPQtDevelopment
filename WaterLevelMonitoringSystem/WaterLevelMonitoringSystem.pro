@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    indicator.cpp
+    indicator.cpp \
+    watertank.cpp
 
 HEADERS  += widget.h \
-    indicator.h
+    indicator.h \
+    watertank.h
 
 FORMS    += widget.ui

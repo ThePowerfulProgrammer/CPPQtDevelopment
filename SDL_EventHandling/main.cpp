@@ -12,14 +12,13 @@ const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 
-// Start up SDL
-
+// Start up SDL --> Step 1
 bool init();
 
-// loads Media
+// loads Media --> Needed external files
 bool loadMedia();
 
-// Free media and close SDL
+// Free media and close SDL --> Return all memory
 void close();
 
 
@@ -35,7 +34,7 @@ SDL_Surface* gXOut = NULL;
 
 bool init()
 {
-    bool success = true;
+    bool success = true; // flag
 
     if (SDL_Init( SDL_INIT_VIDEO) < 0 )
     {

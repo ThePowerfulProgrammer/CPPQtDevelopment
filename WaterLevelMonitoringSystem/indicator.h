@@ -2,6 +2,7 @@
 #define INDICATOR_H
 
 #include <QWidget>
+#include <QTimer>
 
 class Indicator : public QWidget
 {
@@ -15,6 +16,10 @@ signals:
 public slots:
     void colorToggle();
 
+    void activateGo();
+    void activateWarning();
+    void activateDanger();
+
 private:
 
 protected:
@@ -26,6 +31,7 @@ private:
     bool redActive;
     bool yellowActive;
     bool lightsOn;
+    QTimer *timer;
 };
 
 #endif // INDICATOR_H

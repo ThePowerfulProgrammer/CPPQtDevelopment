@@ -2,19 +2,20 @@
 #include <QPen>
 #include <QBrush>
 #include <QPainter>
-#include <QTimer>
+
 
 Indicator::Indicator(QWidget *parent) :
     QWidget(parent),
-    greenActive(true),
+    greenActive(false),
     redActive(false),
     yellowActive(false),
     lightsOn(true)
 {
-
     setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
 
-    QTimer *timer = new QTimer(this);
+    activateDanger();
+
+    timer = new QTimer(this);
     timer->setInterval(300);
     connect(timer, SIGNAL(timeout()), this,SLOT(colorToggle()));
     timer->start();
@@ -83,4 +84,23 @@ void Indicator::colorToggle()
 {
     lightsOn = !lightsOn;
     update();
+}
+
+void Indicator::activateDanger()
+{
+    redActive = true;
+    greenActive = yellowActive = false;
+}
+
+void Indicator::activateWarning()
+{
+    yellowActive = true;
+    greenActive = redActive = false;
+}
+
+void Indicator::activateGo()
+{
+    greenActive = true;
+
+    yellowActive = redActive = false;
 }
