@@ -16,6 +16,7 @@ enum KeyPressSurfaces
     KEY_PRESS_SURFACE_TOTAL
 };
 
+
 bool init(); // start SDL AND Create main window
 
 bool loadMedia(); // load needed media files
@@ -67,6 +68,7 @@ bool loadMedia()
 
     // default surface
     gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT] = loadSurface("C:/Users/ashis/Downloads/04_key_presses/04_key_presses/press.bmp"); // create a surface on the window
+    printf("Default screen \n");
     if (gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT] == NULL)
     {
         printf("Failed to load img \n");
@@ -75,6 +77,7 @@ bool loadMedia()
 
     // default surface
     gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP] = loadSurface("C:/Users/ashis/Downloads/04_key_presses/04_key_presses/up.bmp"); // create a surface on the window
+
     if (gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP] == NULL)
     {
         printf("Failed to load img \n");
@@ -110,7 +113,7 @@ bool loadMedia()
 
 void close()
 {
-    // deallocate surfaces
+    // deallocate surfaces these are all pointers
     for (int i = 0; i < KEY_PRESS_SURFACE_TOTAL; ++i)
     {
         SDL_FreeSurface(gKeyPressSurfaces[ i ]);
@@ -181,18 +184,22 @@ int main( int argc, char* args[] )
                         {
                             case SDLK_UP:
                             gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ];
+                            printf("Up \n");
                             break;
 
                             case SDLK_DOWN:
                             gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ];
+                            printf("Down \n");
                             break;
 
                             case SDLK_LEFT:
                             gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_LEFT ];
+                            printf("Left \n");
                             break;
 
                             case SDLK_RIGHT:
                             gCurrentSurface = gKeyPressSurfaces[ KEY_PRESS_SURFACE_RIGHT ];
+                            printf("Right \n");
                             break;
 
                             default:
@@ -204,6 +211,7 @@ int main( int argc, char* args[] )
 
                 //Apply the current image
                 SDL_BlitSurface( gCurrentSurface, NULL, gScreenSurface, NULL );
+
 
                 //Update the surface
                 SDL_UpdateWindowSurface( gWindow );
