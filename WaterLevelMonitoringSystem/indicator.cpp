@@ -12,8 +12,7 @@ Indicator::Indicator(QWidget *parent) :
     lightsOn(true)
 {
     setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
-
-    activateDanger();
+    activateGo();
 
     timer = new QTimer(this);
     timer->setInterval(300);
@@ -101,6 +100,5 @@ void Indicator::activateWarning()
 void Indicator::activateGo()
 {
     greenActive = true;
-
     yellowActive = redActive = false;
 }

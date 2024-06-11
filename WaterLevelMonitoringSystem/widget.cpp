@@ -11,6 +11,10 @@ Widget::Widget(QWidget *parent) :
     Indicator *indicator = new Indicator(this);
     WaterTank *tank = new WaterTank(this);
 
+    connect(tank, SIGNAL(emitNormal()),indicator, SLOT(activateGo()));
+    connect(tank, SIGNAL(emitWarning()),indicator, SLOT(activateWarning()));
+    connect(tank, SIGNAL(emitDanger()),indicator, SLOT(activateDanger()));
+
     ui->horizontalLayout->addWidget(tank);
     ui->horizontalLayout->addWidget(indicator);
 

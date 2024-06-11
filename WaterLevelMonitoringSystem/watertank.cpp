@@ -1,11 +1,16 @@
 #include "watertank.h"
 #include <QPen>
 #include <QPainter>
+#include <QDebug>
+#include <QWheelEvent>
 
 WaterTank::WaterTank(QWidget *parent) :
     QWidget(parent), waterLevel(50), timer(new QTimer(this))
 {
     setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
+    timer->setInterval(800);
+    connect(timer, SIGNAL(timeout()), this, SLOT(increasingWaterLevel()));
+    timer->start();
 }
 
 
@@ -31,6 +36,34 @@ void WaterTank::paintEvent(QPaintEvent *event)
 
     painter.setBrush(Qt::blue);
     painter.drawRect(QRect(0,315-waterLevel,315,waterLevel));
+}
+
+void WaterTank::increasingWaterLevel()
+{
+    waterLevel += 5;
+    if (waterLevel <= 100)
+    {
+        emit emitNormal();
+    }
+    else if (waterLevel > 100 && waterLevel < 200)
+    {
+        emit emitWarning();
+    }
+    else if (waterLevel > 200)
+    {
+        emit emitDanger();
+    }
 
 
+    update();
+}
+
+
+
+void WaterTank::wheelEvent(QWheelEvent *event)
+{
+    if((event->delta() < 0) && (waterLevel > 200) && (waterLevel > 10))
+    {
+        waterLevel -= 10;
+    }
 }
