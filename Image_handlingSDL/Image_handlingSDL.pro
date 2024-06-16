@@ -18,7 +18,7 @@ TEMPLATE = app
 SOURCES += main.cpp
 
 
-LIBS += -L"C:/Users/ashis/OneDrive/Desktop/SDL Development/SDL2-devel-2.30.3-mingw/SDL2-2.30.3/i686-w64-mingw32/lib" -lSDL2
+LIBS += -L"C:/Users/ashis/OneDrive/Desktop/SDL Development/SDL2-devel-2.30.3-mingw/SDL2-2.30.3/i686-w64-mingw32/lib" -lSDL2main -lSDL2
 LIBS += -L"C:/Users/ashis/OneDrive/Desktop/SDL Development/SDL2_image-devel-2.8.2-mingw/SDL2_image-2.8.2/i686-w64-mingw32/lib" -lSDL2_image
 
 

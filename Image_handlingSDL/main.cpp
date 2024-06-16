@@ -23,7 +23,7 @@ bool init() {
         printf("Could not initialize SDL: %s\n", SDL_GetError());
         success = false;
     } else {
-        gWindow = SDL_CreateWindow("SDL Image Tutorial", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+        gWindow = SDL_CreateWindow("SDL Image Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         if (gWindow == NULL) {
             printf("Window could not be created: %s\n", SDL_GetError());
             success = false;
@@ -44,7 +44,7 @@ bool init() {
 bool loadMedia() {
     bool success = true;
 
-    gPNGSurface = loadSurface("loaded.png");
+    gPNGSurface = loadSurface("C:/Users/ashis/Downloads/06_extension_libraries_and_loading_other_image_formats/06_extension_libraries_and_loading_other_image_formats/loaded.png");
     if (gPNGSurface == NULL) {
         printf("Failed to load PNG image!\n");
         success = false;
@@ -81,6 +81,7 @@ SDL_Surface* loadSurface(std::string path) {
 }
 
 int main(int argc, char* args[]) {
+    printf("Running main \n");
     if (!init()) {
         printf("Failed to initialize!\n");
     } else {
