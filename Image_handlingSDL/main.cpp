@@ -28,12 +28,12 @@ bool init() {
             printf("Window could not be created: %s\n", SDL_GetError());
             success = false;
         } else {
+            gScreenSurface = SDL_GetWindowSurface(gWindow);
+
             int imgFlags = IMG_INIT_PNG;
             if (!(IMG_Init(imgFlags) & imgFlags)) {
                 printf("SDL_image could not initialize: %s\n", IMG_GetError());
                 success = false;
-            } else {
-                gScreenSurface = SDL_GetWindowSurface(gWindow);
             }
         }
     }

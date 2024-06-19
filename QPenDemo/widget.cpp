@@ -108,6 +108,31 @@ void Widget::paintEvent(QPaintEvent *event)
     painter.setPen(pen);
     painter.drawPolygon(points,4);
 
+    // changing brush style
+
+    painter.setBrush(Qt::HorPattern);
+
+    pen.setStyle(Qt::SolidLine);
+    pen.setWidth(2);
+    pen.setColor(Qt::darkRed);
+    painter.setPen(pen);
+
+    painter.drawRect(10,450,100,100);
+
+    // applying gradients
+
+    QLinearGradient linearGradient(QPoint (450,500), QPoint(450, 700));
+    linearGradient.setColorAt(0,Qt::red);
+    linearGradient.setColorAt(0.5,Qt::green);
+    linearGradient.setColorAt(1,Qt::blue);
+
+    QBrush brush(linearGradient);
+    painter.setBrush(brush);
+    painter.drawRect(400,500, 100,200);
+    pen.setColor(Qt::black);
+    painter.setPen(pen);
+    painter.drawLine(QLineF(QPoint (450,500), QPoint(450, 700)));
+
 }
 
 
