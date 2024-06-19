@@ -8,8 +8,8 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-
     setWindowTitle("QPath drawing");
+
 }
 
 Widget::~Widget()
@@ -34,6 +34,11 @@ void Widget::paintEvent(QPaintEvent *event)
 
     path.lineTo(150,150);
 
+    qDebug() << path.currentPosition() << "\n";
+
+    path.lineTo(150,150);
+
+    qDebug() << path.currentPosition() << "\n";
 
     path.moveTo(150,250);
     path.lineTo(500,250);
@@ -41,6 +46,7 @@ void Widget::paintEvent(QPaintEvent *event)
     path.addEllipse(QPoint(150,300),50,50);
 
     qDebug() << "Prior to distance: " << path.currentPosition() << "\n";
+    qDebug() << path.currentPosition() << "\n";
 
     path.moveTo(150,350);
     path.lineTo(500,350);
@@ -59,6 +65,9 @@ void Widget::paintEvent(QPaintEvent *event)
     path.lineTo(650,500);
 
     path.addEllipse(QPoint(650,450),50,50);
+    qDebug() << "MOST CUR: " << path.currentPosition() << "\n";
+
+    path.addEllipse(QPoint(500,300), 50,50);
 
     painter.setBrush(Qt::cyan);
     painter.drawPath(path);
