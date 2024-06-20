@@ -63,6 +63,10 @@ void Widget::paintEvent(QPaintEvent *event)
 
 
     painter.drawPath(path);
+
+    // take everything in the path and translate it to x steps then y steps
+    path.translate(300,500);
+    painter.drawPath(path);
 }
 
 
