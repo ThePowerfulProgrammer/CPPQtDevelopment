@@ -21,7 +21,7 @@ Widget::~Widget()
 void Widget::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    painter.setBrush(Qt::cyan);
+    painter.setBrush(Qt::green);
     QPainterPath path;
 
     path.addRect(100,100,100,100);
