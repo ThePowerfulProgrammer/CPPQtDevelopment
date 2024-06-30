@@ -70,9 +70,44 @@ void Widget::paintEvent(QPaintEvent *event)
     rectangle.translate(390,0);
     painter.drawArc(rectangle, startAngle, spanAngle);
 
+    // Connect to the back bonnet
     path.moveTo(525,150);
     path.lineTo(440,80);
     path.lineTo(200,80);
     path.lineTo(150,150);
     painter.drawPath(path);
+
+
+    // draw the windows
+    path.moveTo(180,150);
+
+    painter.drawPath(path);
+    rectangle.setWidth(150);
+    rectangle.setHeight(150);
+    startAngle = 90*16;
+    spanAngle = 90 * 16;
+
+    rectangle.translate(-290,-90);
+    painter.drawPie(rectangle ,startAngle, spanAngle);
+
+    qDebug() << rectangle.x() << "  Y: " << rectangle.y() << "\n";
+
+    path.moveTo(275,160);
+    path.lineTo(500,160);
+    path.lineTo(420,85);
+    path.lineTo(275, 85);
+    path.lineTo(275, 160);
+    painter.drawPath(path);
+
 }
+
+
+
+
+
+
+
+
+
+
+
