@@ -107,11 +107,24 @@ void SoftwareReviewDialog::displayList()
     for (int i = 0; i < reviews.size(); ++i)
     {
         SoftwareReview *review = reviews.at(i);
+        qDebug() << "Test 1 :  " << review->property("softwareName") << "\n \n";
+        qDebug() << "Test 2 :  " << review->property("softwareName").toString() << "\n \n";
+
         const QMetaObject *metaobject = review->metaObject();
         int count = metaobject->propertyCount();
+        qDebug() << "Count of properyy: " << count << "\n \n \n";
+
+
+
+        qDebug() << "Class Name: " << metaobject->className() << "\n";
+        qDebug() << "SuperCLass Name: " << metaobject->superClass() << "\n";
+        qDebug() << "A Method Name: " << metaobject->method(1).name() << "\n";
+        qDebug() << "A property Name: " << metaobject->property(1).name() << "\n";
+
         for (int j = 1; j < count; ++j)
         {
             QMetaProperty metaproperty = metaobject->property(j);
+            qDebug() << "MP: "<< metaproperty.name() << "\n" ;
             const char *name = metaproperty.name();
             QVariant value = review->property(name);
             qDebug() << QString("%1: %2").arg(name).arg(value.toString());
@@ -120,3 +133,17 @@ void SoftwareReviewDialog::displayList()
         qDebug() << "\n \n \n";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
