@@ -1,4 +1,5 @@
 #include "shapecanvas.h"
+#include <QPainter>
 
 ShapeCanvas::ShapeCanvas(QWidget *parent) :
     QWidget(parent)
@@ -18,7 +19,34 @@ QSize ShapeCanvas::sizeHint() const
 
 void ShapeCanvas::paintEvent(QPaintEvent *event)
 {
+    QPainter painter(this);
+    painter.setPen(Qt::blue);
+    painter.drawRect(QRect(0,0,width() - 1, height() - 1));
 }
+bool ShapeCanvas::getTransformed() const
+{
+    return transformed;
+}
+
+void ShapeCanvas::setTransformed(bool value)
+{
+    transformed = value;
+    update();
+}
+
+bool ShapeCanvas::getAntialiased() const
+{
+    return antialiased;
+}
+
+void ShapeCanvas::setAntialiased(bool value)
+{
+    antialiased = value;
+    update();
+}
+
+
+
 QBrush ShapeCanvas::getBrush() const
 {
     return brush;

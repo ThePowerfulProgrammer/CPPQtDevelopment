@@ -25,6 +25,12 @@ public:
     QBrush getBrush() const;
     void setBrush(const QBrush &value);
 
+    bool getAntialiased() const;
+    void setAntialiased(bool value);
+
+    bool getTransformed() const;
+    void setTransformed(bool value);
+
 signals:
 
 public slots:
@@ -38,6 +44,9 @@ private:
     Shape shape;
     QPen pen;
     QBrush brush;
+    bool antialiased;
+    bool transformed;
+    QPixmap pixmap;
 
 };
 
