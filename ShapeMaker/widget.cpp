@@ -58,6 +58,11 @@ Widget::Widget(QWidget *parent) :
     canvas = new ShapeCanvas(this);
 
     ui->canvasLayout->addWidget(canvas);
+
+    penChanged();
+    brushChanged();
+
+
 }
 
 Widget::~Widget()

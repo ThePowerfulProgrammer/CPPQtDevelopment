@@ -20,3 +20,6 @@ HEADERS  += widget.h \
     shapecanvas.h
 
 FORMS    += widget.ui
+
+RESOURCES += \
+    resource.qrc
