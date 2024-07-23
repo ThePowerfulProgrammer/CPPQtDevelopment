@@ -19,6 +19,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+    void toolRect();
+    void toolEllipse();
+    void toolPen();
+    void toolEraser();
+
 private slots:
     void penWidthChange(int width);
     void changePenColor();
@@ -32,5 +38,7 @@ private:
     QPushButton *fillClrBtn;
     QCheckBox *fillCheckBox;
 };
+
+
 
 #endif // MAINWINDOW_H

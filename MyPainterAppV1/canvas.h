@@ -48,6 +48,9 @@ private:
     QColor fillColor;
     QColor penColor;
     QPoint lastPoint;
+    QRectF lastRect;
+    QRectF lastEraserRect;
+
     QImage image;
 
 

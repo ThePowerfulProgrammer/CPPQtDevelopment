@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QLabel>
 #include <QSpinBox>
+#include <QColorDialog>
 #include <QToolBar>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -46,6 +47,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QPushButton *triangleBtn = new QPushButton(this);
     triangleBtn->setIcon(QIcon(":/images/Triangle.png"));
 
+    connect(rectBtn, SIGNAL(clicked()), this, SLOT(toolRect()));
+    connect(ellipseBtn, SIGNAL(clicked()), this, SLOT(toolEllipse()));
+    connect(penBtn, SIGNAL(clicked()), this, SLOT(toolPen()));
+    connect(eraserBtn, SIGNAL(clicked()), this, SLOT(toolEraser()));
+
     // S && S
     connect(penWidthSpinBox, SIGNAL(valueChanged(int)), this, SLOT(penWidthChange(int)));
     connect(penClrBtn, SIGNAL(clicked()), this, SLOT(changePenColor()));
@@ -67,30 +73,73 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainToolBar->addWidget(eraserBtn);
     ui->mainToolBar->addWidget(triangleBtn);
 
+    QString css = QString("background-color: %1").arg(canvas->getPenColor().name());
+    penClrBtn->setStyleSheet(css);
+
+    css = QString("background-color: %1").arg(canvas->getFillColor().name());
+    fillClrBtn->setStyleSheet(css);
+
+
     setWindowTitle("Powerful Painter");
 }
 
 void MainWindow::penWidthChange(int width)
 {
-
+    canvas->setPenWidth(width);
 }
 
 void MainWindow::changePenColor()
 {
-
+    QColor color = QColorDialog::getColor(canvas->getPenColor());
+    if (color.isValid())
+    {
+        canvas->setPenColor(color);
+        QString css = QString("background-color: %1").arg(color.name());
+        penClrBtn->setStyleSheet(css);
+    }
 }
 
 void MainWindow::changeFillColor()
 {
-
+    QColor color = QColorDialog::getColor(canvas->getPenColor());
+    if(color.isValid()){
+        canvas->setFillColor(color);
+        QString css = QString("background-color : %1").arg(color.name());
+        fillClrBtn->setStyleSheet(css);
+    }
 }
 
 void MainWindow::changeFillProperty()
 {
+    canvas->setFill(fillCheckBox->isChecked());
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::toolRect()
+{
+    canvas->setTool(Canvas::Rectangle);
+    statusBar()->showMessage("CUrrent tool: Rect");
+}
+
+void MainWindow::toolEllipse()
+{
+    canvas->setTool(Canvas::Ellipse);
+    statusBar()->showMessage("Current Tool: Ellipse");
+}
+
+void MainWindow::toolPen()
+{
+    canvas->setTool(Canvas::Pen);
+    statusBar()->showMessage("Current Tool: Pen");
+}
+
+void MainWindow::toolEraser()
+{
+    canvas->setTool(Canvas::Eraser);
+    statusBar()->showMessage("Current Tool: Go Invisible");
 }
