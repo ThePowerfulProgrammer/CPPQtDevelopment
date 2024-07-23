@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/About.png</file>
+        <file>images/Circle.png</file>
+        <file>images/Craser.png</file>
+        <file>images/Open.png</file>
+        <file>images/Pen.png</file>
+        <file>images/Quit.png</file>
+        <file>images/Rectangle.png</file>
+        <file>images/Save.png</file>
+        <file>images/Triangle.png</file>
+    </qresource>
+</RCC>
