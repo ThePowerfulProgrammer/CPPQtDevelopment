@@ -11,6 +11,7 @@ public:
 
     enum ToolType{Pen, Rectangle, Ellipse, Eraser};
 
+
     ToolType getTool() const;
     void setTool(const ToolType &value);
 
@@ -28,6 +29,15 @@ public:
 
     bool getDrawing() const;
     void setDrawing(bool value);
+
+    QString getLine() const;
+    void setLine(const QString &value);
+
+    QString getCap() const;
+    void setCap(const QString &value);
+
+    QString getJoin() const;
+    void setJoin(const QString &value);
 
 signals:
 
@@ -50,8 +60,10 @@ private:
     QPoint lastPoint;
     QRectF lastRect;
     QRectF lastEraserRect;
-
     QImage image;
+    QString line;
+    QString cap;
+    QString join;
 
 
     // QWidget interface

@@ -123,23 +123,23 @@ MainWindow::~MainWindow()
 void MainWindow::toolRect()
 {
     canvas->setTool(Canvas::Rectangle);
-    statusBar()->showMessage("CUrrent tool: Rect");
+    statusBar()->showMessage("Tool: Rect");
 }
 
 void MainWindow::toolEllipse()
 {
     canvas->setTool(Canvas::Ellipse);
-    statusBar()->showMessage("Current Tool: Ellipse");
+    statusBar()->showMessage("Tool: Ellipse");
 }
 
 void MainWindow::toolPen()
 {
     canvas->setTool(Canvas::Pen);
-    statusBar()->showMessage("Current Tool: Pen");
+    statusBar()->showMessage("Tool: Pen");
 }
 
 void MainWindow::toolEraser()
 {
     canvas->setTool(Canvas::Eraser);
-    statusBar()->showMessage("Current Tool: Go Invisible");
+    statusBar()->showMessage("Tool: Go Invisible");
 }

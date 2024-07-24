@@ -12,7 +12,10 @@ Canvas::Canvas(QWidget *parent) :
     fillColor(Qt::blue),
     penColor(Qt::black),
     lastRect(QRectF(0,0,0,0)),
-    lastEraserRect(QRectF(0,0,0,0))
+    lastEraserRect(QRectF(0,0,0,0)),
+    line("SolidLine"),
+    cap("RoundCap"),
+    join("RoundJoin")
 {
 }
 
@@ -109,7 +112,7 @@ void Canvas::drawRectTo(const QPoint &endPoint, bool ellipse)
 
     if (drawing)
     {
-        painter.setPen(QPen(Qt::white, penWidth+2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        painter.setPen(QPen(Qt::white, penWidth+3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 
         if (fill)
         {
@@ -188,6 +191,36 @@ void Canvas::resizeImage(QImage *image, const QSize &newSize)
     painter.drawImage(QPoint(0,0), *image);
     *image = newImage;
 }
+QString Canvas::getJoin() const
+{
+    return join;
+}
+
+void Canvas::setJoin(const QString &value)
+{
+    join = value;
+}
+
+QString Canvas::getCap() const
+{
+    return cap;
+}
+
+void Canvas::setCap(const QString &value)
+{
+    cap = value;
+}
+
+QString Canvas::getLine() const
+{
+    return line;
+}
+
+void Canvas::setLine(const QString &value)
+{
+    line = value;
+}
+
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
