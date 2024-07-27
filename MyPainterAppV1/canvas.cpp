@@ -1,6 +1,7 @@
 #include "canvas.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <QDebug>
 
 
 Canvas::Canvas(QWidget *parent) :
@@ -80,11 +81,10 @@ void Canvas::drawLineTo(const QPoint &endPoint)
     painter.setPen(QPen(penColor, penWidth, Qt::SolidLine, Qt::RoundCap,Qt::RoundJoin));
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.drawLine(lastPoint, endPoint);
+    qDebug() << "Last Point: " << lastPoint.x() << lastPoint.y() << " EndPoint: " << endPoint.x() << endPoint.y() << "\n";
     int adjustment = penWidth + 2;
     update(QRect(lastPoint, endPoint).normalized().adjusted(-adjustment,-adjustment,+adjustment,+adjustment));
     lastPoint = endPoint;
-
-
 }
 
 void Canvas::drawRectTo(const QPoint &endPoint, bool ellipse)
