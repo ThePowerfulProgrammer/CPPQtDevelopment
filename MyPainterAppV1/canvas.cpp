@@ -256,6 +256,14 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         }
 
     }
+
+
+    if ((event->button() == Qt::NoButton) && !drawing)
+    {
+        qDebug() << "Moved: " << event->pos() << "\n";
+        qDebug() << event->button() << Qt::NoButton << "\n";
+    }
+
 }
 
 void Canvas::mouseReleaseEvent(QMouseEvent *event)
