@@ -26,6 +26,9 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role);
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
+
+    void addPerson(Person *person);
+    void removePerson(QModelIndex index);
 };
 
 #endif // PERSONMODEL_H

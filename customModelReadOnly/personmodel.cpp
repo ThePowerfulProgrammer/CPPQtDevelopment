@@ -114,6 +114,23 @@ Qt::ItemFlags PersonModel::flags(const QModelIndex &index) const
     return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
 }
 
+void PersonModel::addPerson(Person *person)
+{
+    const int index = persons.size();
+    beginInsertRows(QModelIndex(), index,index);
+    persons.append(person);
+    endInsertRows();
+}
+
+void PersonModel::removePerson(QModelIndex index)
+{
+    beginRemoveRows(QModelIndex(), index.row(), index.row());
+    persons.removeAt(index.row());
+    endRemoveRows();
+}
+
+
+
 
 
 
