@@ -15,9 +15,11 @@ TEMPLATE = app
 SOURCES += main.cpp\
         widget.cpp\
         person.cpp\
-        personmodel.cpp
+        personmodel.cpp \
+    persondelegate.cpp
 
 
-HEADERS  += widget.h person.h personmodel.h
+HEADERS  += widget.h person.h personmodel.h \
+    persondelegate.h
 
 FORMS    += widget.ui

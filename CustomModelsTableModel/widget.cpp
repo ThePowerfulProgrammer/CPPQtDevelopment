@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 #include <QInputDialog>
 #include <QMessageBox>
+#include "persondelegate.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -10,10 +11,13 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     model = new PersonModel(this);
+    PersonDelegate *delegate = new PersonDelegate(this);
 
     ui->listView->setModel(model);
     ui->tableView->setModel(model);
+    ui->tableView->setItemDelegate(delegate);
     ui->treeView->setModel(model);
+    ui->treeView->setItemDelegate(delegate);
 
     ui->tableView->setSelectionModel(ui->listView->selectionModel());
     ui->treeView->setSelectionModel(ui->listView->selectionModel());
