@@ -74,3 +74,49 @@ void PersonDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionVie
 }
 
 
+
+
+void PersonDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (index.column() == 2)
+    {
+        if (option.state && QStyle::State_Selected)
+        {
+            painter->fillRect(option.rect,option.palette.highlight());
+        }
+
+        QString favColor = index.data(PersonModel::FavoriteColorRole).toString();
+
+        painter->save();
+
+        painter->setBrush(QBrush(QColor(favColor)));
+
+        painter->drawRect(option.rect.adjusted(3,3,-3,-3));
+
+        QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, favColor);
+
+        painter->setBrush(QBrush(QColor(Qt::white)));
+
+        int widthAdjusted = (option.rect.width() - textSize.width())/2 - 3;
+        int heightAdjusted = (option.rect.height() - textSize.height())/2;
+
+        painter->drawRect(option.rect.adjusted(widthAdjusted, heightAdjusted, -widthAdjusted, -heightAdjusted));
+
+        painter->drawText(option.rect, favColor, Qt::AlignHCenter|Qt::AlignVCenter);
+
+        painter->restore();
+    }
+    else
+    {
+        QStyledItemDelegate::paint(painter,option,index);
+    }
+
+}
+
+
+
+
+
+
+
+

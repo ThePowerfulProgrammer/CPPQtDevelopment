@@ -2,6 +2,7 @@
 #define PERSONDELEGATE_H
 
 #include <QStyledItemDelegate>
+#include <QPainter>
 
 class PersonDelegate : public QStyledItemDelegate
 {
@@ -29,6 +30,9 @@ public:
 
     // read data from data and write to model
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+
+    // remember paint() is called when we initially create our object :)
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
 #endif // PERSONDELEGATE_H

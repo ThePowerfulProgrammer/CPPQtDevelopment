@@ -8,14 +8,16 @@ class PersonModel : public QAbstractTableModel
 {
     Q_OBJECT
 
+
+
+
+public:
     enum PersonRoles{
         NamesRole = Qt::UserRole + 1,
         FavoriteColorRole,
         AgeRole
     };
 
-
-public:
     explicit PersonModel(QObject *parent = 0);
     ~PersonModel() override;
 
