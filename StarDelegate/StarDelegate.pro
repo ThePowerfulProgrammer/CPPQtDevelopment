@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    stareditor.cpp
+    stareditor.cpp \
+    stardelegate.cpp
 
 HEADERS  += widget.h \
-    stareditor.h
+    stareditor.h \
+    stardelegate.h
 
 FORMS    += widget.ui

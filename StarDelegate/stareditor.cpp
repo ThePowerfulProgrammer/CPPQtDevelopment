@@ -1,5 +1,6 @@
 #include "stareditor.h"
 #include <QPainter>
+#include <QMouseEvent>
 
 StarEditor::StarEditor(QWidget *parent) :
     QWidget(parent)
@@ -18,6 +19,16 @@ StarEditor::StarEditor(QWidget *parent) :
 QSize StarEditor::sizeHint() const
 {
     return QSize(100,50);
+}
+
+int StarEditor::getStarRating() const
+{
+    return starRating;
+}
+
+void StarEditor::setStarRating(int value)
+{
+    starRating = value;
 }
 
 void StarEditor::mouseReleaseEvent(QMouseEvent *event)
@@ -52,7 +63,8 @@ void StarEditor::paintEvent(QPaintEvent *event)
 
     painter.setBrush(QBrush(Qt::magenta));
 
-    painter.translate(rect().x(), rect.y() + 10);
+
+    painter.translate(rect().x(), rect().y() + 10);
     painter.scale(0.1,0.1);
 
     for (int i = 0; i<starRating; i++)

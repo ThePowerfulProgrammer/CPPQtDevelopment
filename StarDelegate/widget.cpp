@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "stardelegate.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -63,7 +64,7 @@ Widget::Widget(QWidget *parent) :
     ui->tableWidget->setColumnCount(data[0].size());
     ui->tableWidget->setColumnWidth(0,300);
     ui->tableWidget->setColumnWidth(1,200);
-    ui->tableWidget->setColumnWidth(2,100);
+    ui->tableWidget->setColumnWidth(2,300);
 
 
     for (int row = 0; row < data.size() ; row++)
@@ -76,6 +77,9 @@ Widget::Widget(QWidget *parent) :
         ui->tableWidget->setItem(row,1,item1);
         ui->tableWidget->setItem(row,2,item2);
     }
+
+    StarDelegate *delegate = new StarDelegate(this);
+    ui->tableWidget->setItemDelegateForColumn(2,delegate);
 
 }
 
