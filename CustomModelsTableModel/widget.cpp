@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include "persondelegate.h"
 
+#include "stardelegate.h"
+
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -20,12 +22,18 @@ Widget::Widget(QWidget *parent) :
     ui->treeView->setModel(model);
     ui->treeView->setItemDelegate(delegate);
 
-    ui->tableView->setColumnWidth(2,200);
-    ui->treeView->setColumnWidth(2,200);
+    ui->tableView->setColumnWidth(2,150);
+    ui->treeView->setColumnWidth(2,150);
+
+    ui->tableView->setColumnWidth(3,150);
+    ui->treeView->setColumnWidth(3,150);
+
+    StarDelegate *starDelegate = new StarDelegate(this);
+    ui->tableView->setItemDelegateForColumn(3,starDelegate);
+    ui->treeView->setItemDelegateForColumn(3,starDelegate);
 
     ui->tableView->setSelectionModel(ui->listView->selectionModel());
     ui->treeView->setSelectionModel(ui->listView->selectionModel());
-
 
     setWindowTitle("Custom Table");
 }

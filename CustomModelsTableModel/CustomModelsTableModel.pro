@@ -16,10 +16,14 @@ SOURCES += main.cpp\
         widget.cpp\
         person.cpp\
         personmodel.cpp \
-    persondelegate.cpp
+    persondelegate.cpp \
+    stareditor.cpp \
+    stardelegate.cpp
 
 
 HEADERS  += widget.h person.h personmodel.h \
-    persondelegate.h
+    persondelegate.h \
+    stareditor.h \
+    stardelegate.h
 
 FORMS    += widget.ui
