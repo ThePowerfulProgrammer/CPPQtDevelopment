@@ -15,7 +15,8 @@ public:
     enum PersonRoles{
         NamesRole = Qt::UserRole + 1,
         FavoriteColorRole,
-        AgeRole
+        AgeRole,
+        socialScoreRole
     };
 
     explicit PersonModel(QObject *parent = 0);

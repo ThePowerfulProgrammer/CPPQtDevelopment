@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
     // First entry
     temp.append(QVariant("Beginning Qt C++ GUI Development"));
     temp.append(QVariant("Qt C++ GUI"));
-    temp.append(QVariant(2));
+    temp.append(QVariant(3));
     data.append(temp);
 
     // Clear temp for next entry

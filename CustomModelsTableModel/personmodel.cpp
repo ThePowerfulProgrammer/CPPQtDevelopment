@@ -5,12 +5,12 @@ PersonModel::PersonModel(QObject *parent) : QAbstractTableModel(parent)
 {
 
     //Populate with initial data
-    persons.append(new Person("Jamie Lannister", "red", 33));
-    persons.append(new Person("Marry Lane","cyan",26));
-    persons.append(new Person("Steve Moors","yellow",44));
-    persons.append(new Person("Victor Trunk","dodgerblue",30));
-    persons.append(new Person("Ariel Geeny","blue",33));
-    persons.append(new Person("Knut Vikran","lightblue",26));
+    persons.append(new Person("Jamie Lannister", "red", 33, 4));
+    persons.append(new Person("Marry Lane","cyan",26, 2));
+    persons.append(new Person("Steve Moors","yellow",44, 1));
+    persons.append(new Person("Victor Trunk","dodgerblue",30, 3));
+    persons.append(new Person("Ariel Geeny","blue",33, 3));
+    persons.append(new Person("Knut Vikran","lightblue",26, 5));
 }
 
 PersonModel::~PersonModel()
@@ -21,20 +21,22 @@ PersonModel::~PersonModel()
 void PersonModel::addPerson(Person *person)
 {
     insertRows(persons.size(),1);
+
     setData(index(persons.size()-1,0),person->names(), Qt::EditRole);
     setData(index(persons.size() -1,1),person->age(),Qt::EditRole);
     setData(index(persons.size() -1,2),person->favoriteColor(),Qt::EditRole);
+    setData(index(persons.size() -1,3),person->getSocialScore(),Qt::EditRole);
 }
 
 void PersonModel::addPerson()
 {
-    Person *person = new Person("Added Person","yellowgreen",45,this);
+    Person *person = new Person("Added Person","yellowgreen",45, 4,this);
     addPerson(person);
 }
 
 void PersonModel::addPerson(const QString &names, const int &age)
 {
-    Person *person=new Person(names,"yellowgreen",age);
+    Person *person=new Person(names,"yellowgreen",age, 5);
     addPerson(person);
 }
 
@@ -60,7 +62,7 @@ int PersonModel::rowCount(const QModelIndex &parent) const
 int PersonModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return  3;
+    return 4;
 }
 
 QVariant PersonModel::data(const QModelIndex &index, int role) const
@@ -83,6 +85,10 @@ QVariant PersonModel::data(const QModelIndex &index, int role) const
             //Favorite color
             return person->favoriteColor();
         }
+        if(index.column() == 3){
+            //Favorite color
+            return person->getSocialScore();
+        }
     }
 
 
@@ -95,6 +101,10 @@ QVariant PersonModel::data(const QModelIndex &index, int role) const
     }
     if(role == AgeRole){
         return person->age();
+    }
+    if (role == socialScoreRole)
+    {
+        return person->getSocialScore();
     }
 
     if(role == Qt::ToolTipRole){
@@ -142,6 +152,15 @@ bool PersonModel::setData(const QModelIndex &index, const QVariant &value, int r
             }
         }
 
+        if(index.column() == 3){
+            //SocialScore
+            if(person->getSocialScore()!= value.toInt() ) {
+                person->setSocialScore(value.toInt());
+                somethingChanged  = true;
+
+            }
+        }
+
     }break;
 
 
@@ -172,7 +191,21 @@ bool PersonModel::setData(const QModelIndex &index, const QVariant &value, int r
             somethingChanged = true;
         }
     }
+        break;
+
+    case socialScoreRole:
+    {
+        if (person->getSocialScore() != value.toInt())
+        {
+            person->setSocialScore(value.toInt());
+            somethingChanged = true;
+        }
     }
+
+    }
+
+
+
 
     if(somethingChanged){
         emit dataChanged(index,index);
@@ -196,7 +229,10 @@ QVariant PersonModel::headerData(int section, Qt::Orientation orientation, int r
             return QString("Age");
         case 2:
             return QString("Favorite color");
+        case 3:
+            return QString("Social Score");
         }
+
     }
     // vertical rows
     return QString("Person %1").arg(section);

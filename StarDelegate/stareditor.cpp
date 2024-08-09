@@ -58,10 +58,10 @@ void StarEditor::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setPen(Qt::NoPen);
 
-    painter.setBrush(QBrush(Qt::cyan));
+    painter.setBrush(QBrush(Qt::black));
     painter.drawRect(rect());
 
-    painter.setBrush(QBrush(Qt::magenta));
+    painter.setBrush(QBrush(Qt::green));
 
 
     painter.translate(rect().x(), rect().y() + 10);

@@ -16,12 +16,18 @@ Widget::Widget(QWidget *parent) :
     ui->listView->setModel(model);
     ui->tableView->setModel(model);
     ui->tableView->setItemDelegate(delegate);
+
     ui->treeView->setModel(model);
     ui->treeView->setItemDelegate(delegate);
+
+    ui->tableView->setColumnWidth(2,200);
+    ui->treeView->setColumnWidth(2,200);
 
     ui->tableView->setSelectionModel(ui->listView->selectionModel());
     ui->treeView->setSelectionModel(ui->listView->selectionModel());
 
+
+    setWindowTitle("Custom Table");
 }
 
 Widget::~Widget()
@@ -40,7 +46,7 @@ void Widget::on_addPersonButton_clicked()
 
            int age = QInputDialog::getInt(0,"Person Age","Age",20,15,120);
 
-            Person * person = new Person(name,"blue",age,this);
+            Person * person = new Person(name,"blue",age,5,this);
 
             model->addPerson(person);
        }else{
