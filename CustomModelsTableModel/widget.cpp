@@ -15,7 +15,6 @@ Widget::Widget(QWidget *parent) :
     model = new PersonModel(this);
     PersonDelegate *delegate = new PersonDelegate(this);
 
-    ui->listView->setModel(model);
     ui->tableView->setModel(model);
     ui->tableView->setItemDelegate(delegate);
 
@@ -32,8 +31,9 @@ Widget::Widget(QWidget *parent) :
     ui->tableView->setItemDelegateForColumn(3,starDelegate);
     ui->treeView->setItemDelegateForColumn(3,starDelegate);
 
-    ui->tableView->setSelectionModel(ui->listView->selectionModel());
-    ui->treeView->setSelectionModel(ui->listView->selectionModel());
+    ui->tableView->setSelectionModel(ui->tableView->selectionModel());
+    ui->treeView->setSelectionModel(ui->tableView->selectionModel());
+
 
     setWindowTitle("Custom Table");
 }
@@ -65,7 +65,7 @@ void Widget::on_addPersonButton_clicked()
 
 void Widget::on_removePersonButton_clicked()
 {
-   QModelIndex index = ui->listView->currentIndex();
+   QModelIndex index = ui->tableView->currentIndex();
    model->removePerson(index);
 
 }

@@ -7,24 +7,24 @@
     <x>0</x>
     <y>0</y>
     <width>2263</width>
-    <height>502</height>
+    <height>453</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>2263</width>
-    <height>0</height>
+    <width>400</width>
+    <height>400</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QListView" name="listView"/>
-     </item>
      <item>
       <widget class="QTableView" name="tableView"/>
      </item>
