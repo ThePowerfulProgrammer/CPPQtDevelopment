@@ -4,6 +4,7 @@
 #include <QGraphicsRectItem>
 #include <QPen>
 #include <QBrush>
+#include "rect.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -24,6 +25,13 @@ Widget::Widget(QWidget *parent) :
 
     scene->addLine(-300,0,300,0);
     scene->addLine(0,-300,0,300);
+
+    Rect *myrect = new Rect();
+    myrect->setRect(400,100,100,200);
+    myrect->setFlag(QGraphicsItem::ItemIsFocusable);
+    myrect->setFocus();
+    myrect->setPen(QPen(Qt::red));
+    scene->addItem(myrect);
 
 
 
