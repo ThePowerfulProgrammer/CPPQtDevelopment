@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    rect.cpp
+    rect.cpp \
+    view.cpp
 
 HEADERS  += widget.h \
-    rect.h
+    rect.h \
+    view.h
 
 FORMS    += widget.ui
