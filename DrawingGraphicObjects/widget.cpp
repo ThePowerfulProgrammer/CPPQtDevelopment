@@ -1,9 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include "view.h"
-#include <QGraphicsScene>
-#include <QPushButton>
-#include <QGraphicsLineItem>
+
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -12,28 +9,67 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     // Vertical layout left
-    QGraphicsScene *scene = new QGraphicsScene(this);
-    View *view = new View(this);
+    scene = new QGraphicsScene(this);
+    view = new View(this);
 
-    scene->addLine(-300,0,300,0);
 
 
     view->setScene(scene);
     ui->verticalLayout_2->addWidget(view);
 
+}
 
-    // vertical layout right
-    QPushButton *lineBtn = new QPushButton("Line", this);
-    QPushButton *rectBtn = new QPushButton("Rectangle", this);
-    QPushButton *ellipseBtn = new QPushButton("Ellipse", this);
-    ui->verticalLayout_3->addWidget(lineBtn);
-    ui->verticalLayout_3->addWidget(rectBtn);
-    ui->verticalLayout_3->addWidget(ellipseBtn);
 
+
+// draw line
+void Widget::on_pushButton_clicked()
+{
+}
+
+// draw ellipise
+void Widget::on_pushButton_2_clicked()
+{
 
 }
+
+// draw path
+void Widget::on_pushButton_3_clicked()
+{
+
+}
+
+
+// draw image
+void Widget::on_pushButton_6_clicked()
+{
+
+}
+
+
+// draw pie
+void Widget::on_pushButton_4_clicked()
+{
+
+}
+
+
+// draw star
+void Widget::on_pushButton_5_clicked()
+{
+
+}
+
+// draw xy plane
+void Widget::on_pushButton_13_clicked()
+{
+    scene->addLine(-300,0,300,0, QPen(Qt::green)); // draw from (-300,0) - (300,0)
+    scene->addLine(0,200,0,-200, QPen(Qt::blue)); // draw from (300,50) (300,-50)
+
+}
+
 
 Widget::~Widget()
 {
     delete ui;
 }
+
