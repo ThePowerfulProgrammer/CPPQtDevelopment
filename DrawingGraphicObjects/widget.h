@@ -19,6 +19,10 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+    void drawLineTo(const QPoint &endPoint);
+
+
+
 private slots:
     void on_pushButton_clicked();
 
@@ -38,6 +42,15 @@ private:
     Ui::Widget *ui;
     QGraphicsView *view;
     QGraphicsScene *scene;
+    bool areWeDrawing;
+    QPoint currentPos;
+
+
+
+    // QWidget interface
+protected:
+    void mousePressEvent(QMouseEvent *event); // start my drawing
+    void mouseReleaseEvent(QMouseEvent *event); // end my drawing
 };
 
 #endif // WIDGET_H
