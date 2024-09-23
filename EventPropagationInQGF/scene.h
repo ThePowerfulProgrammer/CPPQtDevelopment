@@ -1,13 +1,13 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <QObject>
+#include <QGraphicsScene>
 
-class Scene : public QObject
+class Scene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit Scene(QObject *parent = 0);
+    explicit Scene(QWidget *parent = 0);
 
 signals:
 
