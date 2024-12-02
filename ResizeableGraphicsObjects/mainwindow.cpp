@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "resizeablerectitem.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,10 +16,14 @@ MainWindow::MainWindow(QWidget *parent) :
     rectItem->setFlag(QGraphicsItem::ItemIsMovable);
 
 
-
-
     scene = new QGraphicsScene; // the stage where we present the performance
-    scene->addItem(rectItem);
+    ResizeableRectItem *resizeableRect = new ResizeableRectItem;
+    resizeableRect->setRect(100,100,50,50);
+    resizeableRect->setBrush(QBrush(Qt::red));
+    resizeableRect->setFlag(QGraphicsItem::ItemIsSelectable);
+
+
+    scene->addItem(resizeableRect);
 
     view = new QGraphicsView; // the camera that allows the audience to view the performance
 
@@ -34,18 +38,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    currentRect = rectItem->rect();
 
-    qDebug() << view->mapToScene(currentRect.topLeft().toPoint())  << " , " << view->mapToScene(currentRect.topRight().toPoint()) <<
-                view->mapToScene(currentRect.bottomLeft().toPoint()) << view->mapToScene(currentRect.bottomRight().toPoint()) <<
-                " Width: " << currentRect.width() << " Height: " << currentRect.height();
-
-    currentRect.setBottomLeft(QPointF(currentRect.x() - 10, currentRect.y()));
-
-
-}
 
 
 
