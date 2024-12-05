@@ -1,0 +1,3 @@
+Tasks:
+
+1) Create the interface for the graphical items
