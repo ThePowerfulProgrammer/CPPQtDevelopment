@@ -1,8 +1,11 @@
-#include <QCoreApplication>
+#include <QApplication>
+#include "dialog.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication a(argc, argv);
 
+    Dialog *dialog = new Dialog;
+    dialog->show();
     return a.exec();
 }

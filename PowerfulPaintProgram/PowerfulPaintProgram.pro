@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core
+QT       += core widgets
 
 QT       -= gui
 
@@ -15,4 +15,13 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    canvas.cpp \
+    dialog.cpp
+
+HEADERS += \
+    canvas.h \
+    dialog.h
+
+RESOURCES += \
+    images.qrc

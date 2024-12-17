@@ -2,16 +2,39 @@
 #define CANVAS_H
 
 #include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
 
 class Canvas : public QGraphicsScene
 {
-    Q_OBJECT
+
 public:
     explicit Canvas(QObject *parent = 0);
 
-signals:
+    enum Tool
+    {
+        Pen,
+    };
 
-public slots:
+    void setPen();
+
+
+
+    // QGraphicsScene interface
+    int getPenWidth() const;
+    void setPenWidth(int value);
+
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+
+private:
+
+    QPointF firstPoint;
+    QPointF lastPoint;
+    bool isDrawing;
+    int penWidth;
+
 
 };
 

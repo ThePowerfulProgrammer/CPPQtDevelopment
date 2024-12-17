@@ -1,1 +1,5 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>Paint Brush Icon.png</file>
+    </qresource>
+</RCC>
