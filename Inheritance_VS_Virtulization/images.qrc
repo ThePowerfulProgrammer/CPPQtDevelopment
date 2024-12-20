@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>typical_Inheritance.png</file>
+    </qresource>
+</RCC>
