@@ -6,10 +6,10 @@ class Student
 {
 public:
     Student(QString nm, long id, QString m_Major, int year = 1);
-    ~Student();
+    virtual ~Student();
 
-    QString getClassName() const;
-    QString toString() const;
+    virtual QString getClassName() const;
+    virtual QString toString() const;
 
     QString yearString() const;
 

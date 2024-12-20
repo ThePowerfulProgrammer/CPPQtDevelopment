@@ -87,3 +87,12 @@ Derivation with Polymorphism
 
 The use of the keyword virtual in the BASE CLASS
 
+By simply adding the keyword virtual to at least one member function we have
+ created a polymorphic type. When virtual is specified on a function, it
+ becomes a method in that class and all derived classes
+
+Notice that we now see [GradStudent] and [UnderGrad] in the output,thanks to the
+ fact that getClassName()isvirtual.Thereisstill aproblemwiththeoutputof
+ graduate() for the GradStudent,however.TheSupport piece is missing
+
+

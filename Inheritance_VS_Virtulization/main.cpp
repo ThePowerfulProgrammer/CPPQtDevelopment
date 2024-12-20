@@ -10,6 +10,7 @@ static QTextStream cout(stdout, QIODevice::WriteOnly);
 
 
 /* A student is still a student */
+/* now in the parent class dynamic binding has been turned on */
 void graduate(Student *student)
 {
     qDebug() << "\nThe following "

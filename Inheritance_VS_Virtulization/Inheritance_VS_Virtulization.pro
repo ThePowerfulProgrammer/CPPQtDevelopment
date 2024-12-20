@@ -24,7 +24,8 @@ RESOURCES += \
     images.qrc
 
 OTHER_FILES += \
-    typical_Inheritance.png
+    typical_Inheritance.png \
+    goodToKnow.txt
 
 HEADERS += \
     student.h \
