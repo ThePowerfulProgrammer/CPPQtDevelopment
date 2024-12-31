@@ -13,6 +13,7 @@ public:
     ResizeableRect();
 
     void drawSizeControls(); // draw 4 small circles at each vertex; will be called in paint
+    void redrawSizeControls(); // if size change: Delete circles and redraw
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void setFrame(QRectF newRect);
 

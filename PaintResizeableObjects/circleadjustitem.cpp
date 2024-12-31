@@ -29,12 +29,13 @@ void CircleAdjustItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             ResizeableRect *rectItem = dynamic_cast<ResizeableRect*>(parentItem());
             if (rectItem)
             {
-                QRectF boundingRectRectItem = rectItem->boundingRect(); // return current bounding rect
-                boundingRectRectItem.setTop(event->pos().y());
-                boundingRectRectItem.setLeft(event->pos().x());
+                QRectF boundingRectRectItem = rectItem->rect() ; // return current bounding rect
+                boundingRectRectItem.setTop(event->pos().y() + 6);
+                boundingRectRectItem.setLeft(event->pos().x()  - 6);
 
 
-                rectItem->setFrame(boundingRectRectItem);
+                rectItem->setFrame(boundingRectRectItem.normalized());
+
             }
         }
         break;
@@ -44,9 +45,9 @@ void CircleAdjustItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             ResizeableRect *rectItem = dynamic_cast<ResizeableRect*>(parentItem());
             if (rectItem)
             {
-                QRectF boundingRectRectItem = rectItem->boundingRect(); // return current bounding rect
-                boundingRectRectItem.setTopRight(event->pos());
-                rectItem->setFrame(boundingRectRectItem);
+                QRectF boundingRectRectItem = rectItem->rect(); // return current bounding rect
+                boundingRectRectItem.setTopRight(event->pos() + QPointF(6, -6));
+                rectItem->setFrame(boundingRectRectItem.normalized());
             }
         }
         break;
@@ -56,10 +57,12 @@ void CircleAdjustItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             ResizeableRect *rectItem = dynamic_cast<ResizeableRect*>(parentItem());
             if (rectItem)
             {
-                QRectF boundingRectRectItem = rectItem->boundingRect(); // return current bounding rect
-                boundingRectRectItem.setBottomLeft(event->pos());
+                QRectF boundingRectRectItem = rectItem->rect(); // return current bounding rect
+                boundingRectRectItem.setBottomLeft(event->pos() + QPointF(-6,6));
 
-                rectItem->setFrame(boundingRectRectItem);
+                rectItem->setFrame(boundingRectRectItem.normalized());
+
+
             }
 
         }
@@ -70,10 +73,13 @@ void CircleAdjustItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             ResizeableRect *rectItem = dynamic_cast<ResizeableRect*>(parentItem());
             if (rectItem)
             {
-                QRectF boundingRectRectItem = rectItem->boundingRect(); // return current bounding rect
-                boundingRectRectItem.setBottomRight(event->pos());
+                QRectF boundingRectRectItem = rectItem->rect(); // return current bounding rect
 
-                rectItem->setFrame(boundingRectRectItem);
+                boundingRectRectItem.setBottomRight(event->pos() + QPointF(-6,-6)) ;
+
+
+                rectItem->setFrame(boundingRectRectItem.normalized());
+                qDebug() << "Top Left: " << boundingRectRectItem.topLeft() << "\n";
             }
 
         }

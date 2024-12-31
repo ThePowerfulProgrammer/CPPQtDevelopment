@@ -18,85 +18,101 @@ void ResizeableRect::drawSizeControls()
     pen.setColor(Qt::black);
 
 
+    // I need to draw a circle at the top left corner
+
+    if (listOfAdjustableCircles.size() == 0)
+    {
+        if (!hasBeenDrawn)
+        {
+            QPointF topLeftBoundedCorner = this->boundingRect().topLeft() + QPointF(-16.0,-16.0);
+            QRectF rect = QRectF(topLeftBoundedCorner, QSize(17,17));
+
+            ellipseTopLeft = new CircleAdjustItem(CircleAdjustItem::TopLeft,rect);
+            ellipseTopLeft->setFlag(ItemIsMovable);
+            ellipseTopLeft->setPen(pen);
+            ellipseTopLeft->setBrush(QBrush(QColor(210, 1, 3, 50)));
+            ellipseTopLeft->setParentItem(this);
+
+            listOfAdjustableCircles.append(ellipseTopLeft);
+
+            this->scene()->addItem(listOfAdjustableCircles[0]);
+
+        }
+
+
+        // I need a circle at the top right corner
+        if (!hasBeenDrawn)
+        {
+            QPointF topRightBoundedCorner = this->boundingRect().topRight() + QPointF(0,-15.0);
+            QRectF rectTopRight = QRectF(topRightBoundedCorner, QSize(17,17));
+
+            ellipseTopRight = new CircleAdjustItem(CircleAdjustItem::TopRight, rectTopRight);
+            ellipseTopRight->setFlag(QGraphicsItem::ItemIsMovable);
+            ellipseTopRight->setPen(pen);
+            ellipseTopRight->setBrush(QColor(4,27,255,50));
+            ellipseTopRight->setParentItem(this);
+
+            listOfAdjustableCircles.append(ellipseTopRight);
+
+            this->scene()->addItem(listOfAdjustableCircles[1] );
+
+        }
+
+        // I need a circle at the bottom left corner
+        if (!hasBeenDrawn)
+        {
+            QPointF bottomLeftBoundedCorner = this->boundingRect().bottomLeft() + QPointF(-17.0,0);
+            QRectF rectBottomLeft = QRectF(bottomLeftBoundedCorner, QSize(17,17));
+
+            ellipseBotttomLeft = new CircleAdjustItem(CircleAdjustItem::BottomLeft, rectBottomLeft);
+            ellipseBotttomLeft->setFlag(QGraphicsItem::ItemIsMovable);
+            ellipseBotttomLeft->setPen(pen);
+            ellipseBotttomLeft->setBrush(QColor(255,255,255,50));
+            ellipseBotttomLeft->setParentItem(this);
+
+            listOfAdjustableCircles.append(ellipseBotttomLeft);
+
+            this->scene()->addItem(listOfAdjustableCircles[2]);
+
+        }
+
+        // I need a circle at the bottom right
+        if (!hasBeenDrawn)
+        {
+            QPointF bottomRightBoundedCorner = this->boundingRect().bottomRight();
+            QRectF rectBottomRight = QRectF(bottomRightBoundedCorner, QSize(17,17));
+
+            ellipseBottomRight = new CircleAdjustItem(CircleAdjustItem::BottomRight, rectBottomRight);
+            ellipseBottomRight->setFlag(QGraphicsItem::ItemIsMovable);
+            ellipseBottomRight->setPen(pen);
+            ellipseBottomRight->setBrush(QColor(4,227,27,50));
+            ellipseBottomRight->setParentItem(this);
+
+            listOfAdjustableCircles.append(ellipseBottomRight);
+
+            this->scene()->addItem(listOfAdjustableCircles[3]);
+            qDebug() << "Run only once \n";
+        }
+
+        hasBeenDrawn = true;
+    }
+
+
+
+
+}
+
+
+// Rect has changed size therefore we need a redraw of circles
+void ResizeableRect::redrawSizeControls()
+{
+
     if (isSelected())
     {
-
-            // I need to draw a circle at the top left corner
-            if (!hasBeenDrawn)
-            {
-                QPointF topLeftBoundedCorner = this->boundingRect().topLeft() + QPointF(-16.0,-16.0);
-                QRectF rect = QRectF(topLeftBoundedCorner, QSize(17,17));
-
-                ellipseTopLeft = new CircleAdjustItem(CircleAdjustItem::TopLeft,rect);
-                ellipseTopLeft->setFlag(ItemIsMovable);
-                ellipseTopLeft->setPen(pen);
-                ellipseTopLeft->setBrush(QBrush(QColor(210, 1, 3, 50)));
-                ellipseTopLeft->setParentItem(this);
-                listOfAdjustableCircles.append(ellipseTopLeft);
-                listOfAdjustableCircles[0]->setParentItem(this);
-
-                this->scene()->addItem(ellipseTopLeft);
-
-            }
-
-
-            // I need a circle at the top right corner
-            if (!hasBeenDrawn)
-            {
-                QPointF topRightBoundedCorner = this->boundingRect().topRight() + QPointF(0,-15.0);
-                QRectF rectTopRight = QRectF(topRightBoundedCorner, QSize(17,17));
-
-                ellipseTopRight = new CircleAdjustItem(CircleAdjustItem::TopRight, rectTopRight);
-                ellipseTopRight->setFlag(QGraphicsItem::ItemIsMovable);
-                ellipseTopRight->setPen(pen);
-                ellipseTopRight->setBrush(QColor(4,27,255,50));
-                ellipseTopRight->setParentItem(this);
-                listOfAdjustableCircles.append(ellipseTopRight);
-                listOfAdjustableCircles[1]->setParentItem(this);
-
-                this->scene()->addItem(ellipseTopRight);
-
-            }
-
-            // I need a circle at the bottom left corner
-            if (!hasBeenDrawn)
-            {
-                QPointF bottomLeftBoundedCorner = this->boundingRect().bottomLeft() + QPointF(-17.0,0);
-                QRectF rectBottomLeft = QRectF(bottomLeftBoundedCorner, QSize(17,17));
-
-                ellipseBotttomLeft = new CircleAdjustItem(CircleAdjustItem::BottomLeft, rectBottomLeft);
-                ellipseBotttomLeft->setFlag(QGraphicsItem::ItemIsMovable);
-                ellipseBotttomLeft->setPen(pen);
-                ellipseBotttomLeft->setBrush(QColor(255,255,255,50));
-                ellipseBotttomLeft->setParentItem(this);
-                listOfAdjustableCircles.append(ellipseBotttomLeft);
-                listOfAdjustableCircles[2]->setParentItem(this);
-
-                this->scene()->addItem(ellipseBotttomLeft);
-
-            }
-
-            // I need a circle at the bottom right
-            if (!hasBeenDrawn)
-            {
-                QPointF bottomRightBoundedCorner = this->boundingRect().bottomRight();
-                QRectF rectBottomRight = QRectF(bottomRightBoundedCorner, QSize(17,17));
-
-                ellipseBottomRight = new CircleAdjustItem(CircleAdjustItem::BottomLeft, rectBottomRight);
-                ellipseBottomRight->setFlag(QGraphicsItem::ItemIsMovable);
-                ellipseBottomRight->setPen(pen);
-                ellipseBottomRight->setBrush(QColor(4,227,27,50));
-                ellipseBottomRight->setParentItem(this);
-                listOfAdjustableCircles.append(ellipseBottomRight);
-                listOfAdjustableCircles[3]->setParentItem(this);
-
-                this->scene()->addItem(ellipseBottomRight);
-                qDebug() << "Run only once \n";
-            }
-
-            hasBeenDrawn = true;
+        drawSizeControls();
+        hasBeenDrawn = true; // draw once
     }
-    else if (hasBeenDrawn && !isSelected())
+    else
     {
         foreach (CircleAdjustItem *circle, listOfAdjustableCircles)
         {
@@ -107,6 +123,7 @@ void ResizeableRect::drawSizeControls()
         listOfAdjustableCircles.clear();
         hasBeenDrawn = false;
     }
+
 
 
 }
@@ -123,7 +140,7 @@ void ResizeableRect::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
     painter->drawRect(rect());
 
-    drawSizeControls();
+    redrawSizeControls();
 
     painter->restore();
 }
@@ -132,5 +149,6 @@ void ResizeableRect::setFrame(QRectF newRect)
 {
     prepareGeometryChange();
     setRect(newRect);
+
     update(); // calls paint
 }

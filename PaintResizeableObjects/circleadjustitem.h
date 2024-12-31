@@ -26,7 +26,6 @@ public:
 
 
 
-    // QGraphicsItem interface
 protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 

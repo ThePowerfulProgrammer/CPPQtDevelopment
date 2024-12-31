@@ -13,7 +13,11 @@ Dialog::Dialog(QWidget *parent) :
     rect->setBrush(QBrush(QColor(4,27,255)));
 
     QGraphicsScene *scene = new QGraphicsScene;
+
+    scene->addLine(QLineF(QPointF(400,0), QPointF(400,-600)) );
+    scene->addLine(QLineF(QPointF(0,-300), QPointF(800,-300)));
     scene->addItem(rect);
+
     QGraphicsView *view = new QGraphicsView;
     view->setScene(scene);
 
